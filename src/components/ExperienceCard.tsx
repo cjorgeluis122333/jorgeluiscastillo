@@ -14,20 +14,20 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ company, role, p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-6 mb-6"
+            className="glass-card p-5 md:p-6 mb-6"
         >
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white">{role}</h3>
-                    <p className="text-accent-secondary font-medium">{company}</p>
+                    <h3 className="text-lg md:text-2xl font-bold text-white">{role}</h3>
+                    <p className="text-accent-secondary font-medium text-sm md:text-base">{company}</p>
                 </div>
-                <span className="text-sm text-accent-muted mt-2 md:mt-0 font-medium px-3 py-1 bg-white/5 rounded-full border border-white/5">
+                <span className="text-[10px] md:text-sm text-accent-muted mt-2 md:mt-0 font-medium px-3 py-1 bg-white/5 rounded-full border border-white/5 w-fit">
                     {period}
                 </span>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2 md:space-y-3">
                 {achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start text-accent-muted leading-relaxed">
+                    <li key={index} className="flex items-start text-accent-muted leading-relaxed text-sm md:text-base">
                         <span className="mr-3 text-accent-primary mt-1.5">•</span>
                         {achievement}
                     </li>
