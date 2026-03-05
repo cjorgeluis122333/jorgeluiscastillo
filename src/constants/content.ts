@@ -8,14 +8,6 @@ import {
 import { GraduationCap, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { SvgIcon } from '../components/SvgIcon';
 
-// Import SVG assets
-import gitIcon from '../assets/git.svg';
-import postmanIcon from '../assets/postman.svg';
-import tidbIcon from '../assets/tidb.svg';
-import ideaIcon from '../assets/idea-50.svg';
-import phpstormIcon from '../assets/phpstorm.svg';
-import androidStudioIcon from '../assets/android-studio.svg';
-
 export const CONTENT = {
     es: {
         hero: {
@@ -109,17 +101,18 @@ export const CONTENT = {
                     { name: "Vercel", icon: SiVercel },
                     { name: "GitLab CI", icon: SiGitlab },
                     { name: "Supabase", icon: SiSupabase },
-                    { name: "TiDB Cloud", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: tidbIcon }) }
+                    { name: "TiDB Cloud", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'tidb' }) }
                 ]
             }
         ],
         tools: [
-            { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: gitIcon }) },
-            { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: ideaIcon }) },
-            { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: phpstormIcon }) },
-            { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: androidStudioIcon }) },
-            { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: postmanIcon }) }
+            { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+            { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'idea' }) },
+            { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'phpstorm' }) },
+            { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'android-studio' }) },
+            { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
         ],
+
 
         softSkills: [
             "Liderazgo técnico y gestión de proyectos.",
