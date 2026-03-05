@@ -72,7 +72,6 @@ export const CONTENT = {
                 skills: [
                     { name: "Java (Spring Boot)", icon: SiSpringboot },
                     { name: "PHP (Laravel)", icon: SiLaravel },
-                    { name: "PHP", icon: SiPhp }
                 ]
             },
             {
@@ -99,7 +98,8 @@ export const CONTENT = {
                     { name: "Cloudflare", icon: SiCloudflare },
                     { name: "Vercel", icon: SiVercel },
                     { name: "GitLab CI", icon: SiGitlab },
-                    { name: "Supabase", icon: SiSupabase }
+                    { name: "Supabase", icon: SiSupabase },
+                    { name: "TiDB Cloud", icon: SiSupabase }
                 ]
             }
         ],
