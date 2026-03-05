@@ -120,7 +120,12 @@ export const CONTENT = {
             "Trabajo en equipo y comunicación efectiva.",
             "Resolución de problemas complejos con enfoque en eficiencia.",
             "Inglés - Nivel B1 (Intermedio)."
-        ]
+        ],
+        footer: {
+            title: "Desarrollo el software que tu negocio necesita.",
+            description: "Soluciones escalables, reales y directas al punto. Cuéntame tu idea y empecemos a trabajar hoy mismo.",
+            buttonText: "Escríbeme al WhatsApp"
+        }
     },
     en: {
         hero: {
@@ -233,6 +238,11 @@ export const CONTENT = {
             "Teamwork and effective communication.",
             "Complex problem solving with a focus on efficiency.",
             "English - B1 Level (Intermediate)."
-        ]
+        ],
+        footer: {
+            title: "I build the software your business needs.",
+            description: "Scalable, real, and straight-to-the-point solutions. Tell me about your idea and let's get to work today.",
+            buttonText: "Message me on WhatsApp"
+        }
     }
 };
