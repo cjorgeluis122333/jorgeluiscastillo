@@ -5,7 +5,7 @@ import {
     SiMysql, SiSqlite, SiRedis, SiDocker, SiGithubactions,
     SiCloudflare, SiVercel, SiGitlab, SiSupabase, SiAndroid
 } from 'react-icons/si';
-import { GraduationCap, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { GraduationCap, Mail } from 'lucide-react';
 import { SvgIcon } from '../components/SvgIcon';
 
 export const CONTENT = {
@@ -16,11 +16,12 @@ export const CONTENT = {
             description: "Desarrollador de software con más de 3 años de experiencia en el diseño y construcción de aplicaciones web y móviles. Estudiante de 4to año de Ciencias de la Computación (UCLV).",
             contact: [
                 { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
-                { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/cjorgeluis122333/" },
-                { icon: Github, label: "GitHub", url: "https://github.com/cjorgeluis122333" },
-                { icon: MessageCircle, label: "WhatsApp", url: "https://wa.me/5355815615" }
+                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/cjorgeluis122333/" },
+                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'github' }), label: "GitHub", url: "https://github.com/cjorgeluis122333" },
+                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'whatsapp' }), label: "WhatsApp", url: "https://wa.me/5355815615" }
             ]
         },
+
         sections: {
             profile: "Perfil Profesional",
             experience: "Experiencia Laboral",
