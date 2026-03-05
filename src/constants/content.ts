@@ -16,7 +16,7 @@ export const CONTENT = {
             description: "Desarrollador de software con más de 3 años de experiencia en el diseño y construcción de aplicaciones web y móviles. Estudiante de 4to año de Ciencias de la Computación (UCLV).",
             contact: [
                 { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
-                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/cjorgeluis122333/" },
+                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'github' }), label: "GitHub", url: "https://github.com/cjorgeluis122333" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'whatsapp' }), label: "WhatsApp", url: "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte" }
             ]
@@ -129,7 +129,7 @@ export const CONTENT = {
             description: "Software developer with over 3 years of experience in designing and building web and mobile applications. 4th-year Computer Science student (UCLV).",
             contact: [
                 { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
-                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/cjorgeluis122333/" },
+                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'github' }), label: "GitHub", url: "https://github.com/cjorgeluis122333" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'whatsapp' }), label: "WhatsApp", url: "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte" }
             ]
