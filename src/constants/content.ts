@@ -13,7 +13,7 @@ export const CONTENT = {
             role: "Desarrollador de Software Full-Stack & Mobile",
             description: "Desarrollador de software con más de 3 años de experiencia en el diseño y construcción de aplicaciones web y móviles. Estudiante de 4to año de Ciencias de la Computación (UCLV).",
             contact: [
-                { icon: Mail, label: "cjorgeluis122333@gmail.com", url: "mailto:cjorgeluis122333@gmail.com" },
+                { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
                 { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/cjorgeluis122333/" },
                 { icon: Github, label: "GitHub", url: "https://github.com/cjorgeluis122333" },
                 { icon: MessageCircle, label: "WhatsApp", url: "https://wa.me/5355815615" }

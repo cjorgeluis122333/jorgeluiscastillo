@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
                     {content.description}
                 </p>
 
-                <div className="flex flex-wrap gap-4 md:gap-6 justify-center">
+                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 md:gap-6 justify-center w-full max-w-2xl mx-auto px-4">
                     {content.contact.map((item, index) => (
                         <motion.a
                             key={index}
@@ -49,10 +49,10 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.15)" }}
-                            className="flex items-center gap-2 md:gap-3 px-4 md:px-6 py-3 md:py-4 glass-card text-white font-semibold text-[10px] sm:text-sm md:text-lg"
+                            className="flex items-center justify-center gap-2 md:gap-3 px-3 md:px-6 py-3 md:py-4 glass-card text-white font-semibold text-[10px] sm:text-sm md:text-lg"
                         >
-                            <item.icon className="w-4 h-4 md:w-6 md:h-6 text-accent-secondary" />
-                            <span>{item.label}</span>
+                            <item.icon className="w-4 h-4 md:w-6 md:h-6 text-accent-secondary shrink-0" />
+                            <span className="truncate">{item.label}</span>
                         </motion.a>
                     ))}
                 </div>
