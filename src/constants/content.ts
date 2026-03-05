@@ -1,10 +1,20 @@
+import React from 'react';
 import {
     SiHtml5, SiCss, SiJavascript, SiTypescript, SiReact,
     SiSpringboot, SiLaravel, SiKotlin, SiPostgresql,
     SiMysql, SiSqlite, SiRedis, SiDocker, SiGithubactions,
-    SiCloudflare, SiVercel, SiGitlab, SiSupabase, SiPhp, SiAndroid
+    SiCloudflare, SiVercel, SiGitlab, SiSupabase, SiAndroid
 } from 'react-icons/si';
 import { GraduationCap, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { SvgIcon } from '../components/SvgIcon';
+
+// Import SVG assets
+import gitIcon from '../assets/git.svg';
+import postmanIcon from '../assets/postman.svg';
+import tidbIcon from '../assets/tidb.svg';
+import ideaIcon from '../assets/idea-50.svg';
+import phpstormIcon from '../assets/phpstorm.svg';
+import androidStudioIcon from '../assets/android-studio.svg';
 
 export const CONTENT = {
     es: {
@@ -99,17 +109,18 @@ export const CONTENT = {
                     { name: "Vercel", icon: SiVercel },
                     { name: "GitLab CI", icon: SiGitlab },
                     { name: "Supabase", icon: SiSupabase },
-                    { name: "TiDB Cloud", icon: SiSupabase }
+                    { name: "TiDB Cloud", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: tidbIcon }) }
                 ]
             }
         ],
         tools: [
-            { name: "Git", icon: SiJavascript }, // Using JS icon as placeholder if Git not in Si
-            { name: "IntelliJ IDEA", icon: SiJavascript },
-            { name: "PhpStorm", icon: SiPhp },
-            { name: "Android Studio", icon: SiAndroid },
-            { name: "Insomnia", icon: SiJavascript }
+            { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: gitIcon }) },
+            { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: ideaIcon }) },
+            { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: phpstormIcon }) },
+            { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: androidStudioIcon }) },
+            { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, src: postmanIcon }) }
         ],
+
         softSkills: [
             "Liderazgo técnico y gestión de proyectos.",
             "Capacidad de adaptación a nuevas problemáticas y stacks tecnológicos.",
