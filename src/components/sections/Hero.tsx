@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
           - Mantener whitespace-nowrap y py-2 para asegurar línea única sin cortes.
         */}
                 <h1 className="text-[8.5vw] md:text-[clamp(4rem,6vw,8.5rem)] font-bold mb-10 md:mb-12 text-white leading-none tracking-tighter whitespace-nowrap py-2">
-                    Jorge Luis <span className="text-gradient">Castillo Vidal</span>
+                    {content.name.split(' ').slice(0, 2).join(' ')} <span className="text-gradient">{content.name.split(' ').slice(2).join(' ')}</span>
                 </h1>
 
                 <p className="text-[3.5vw] md:text-[clamp(1rem,2vw,1.5rem)] text-accent-muted mb-12 md:mb-20 leading-relaxed font-light max-w-3xl mx-auto px-4">

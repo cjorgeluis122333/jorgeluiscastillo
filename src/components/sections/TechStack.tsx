@@ -5,6 +5,7 @@ import { SkillBadge } from '../SkillBadge';
 
 interface TechStackProps {
     title: string;
+    toolsTitle: string;
     groups: {
         title: string;
         skills: {
@@ -18,7 +19,7 @@ interface TechStackProps {
     }[];
 }
 
-export const TechStack: React.FC<TechStackProps> = ({ title, groups, tools }) => {
+export const TechStack: React.FC<TechStackProps> = ({ title, toolsTitle, groups, tools }) => {
     return (
         <section className="section-container border-t border-white/5">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
@@ -53,7 +54,7 @@ export const TechStack: React.FC<TechStackProps> = ({ title, groups, tools }) =>
                         viewport={{ once: true }}
                     >
                         <h3 className="text-lg md:text-2xl font-bold text-accent-secondary mb-6 md:mb-10 pb-4 border-b border-accent-secondary/20">
-                            Herramientas
+                            {toolsTitle}
                         </h3>
                         <div className="flex flex-wrap gap-3 md:gap-5">
                             {tools.map((tool, index) => (

@@ -1,5 +1,5 @@
-import React from 'react';
-import { CONTENT } from './constants/content';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { Hero } from './components/sections/Hero';
 import { Profile } from './components/sections/Profile';
 import { Experience } from './components/sections/Experience';
@@ -7,14 +7,14 @@ import { TechStack } from './components/sections/TechStack';
 import { Education } from './components/sections/Education';
 import { SoftSkills } from './components/sections/SoftSkills';
 import { Footer } from './components/sections/Footer';
+import React from 'react';
 
-const App: React.FC = () => {
-  const { es: content } = CONTENT;
-
-  if (!content) return <div className="text-white">Error: Content not found</div>;
+const AppContent: React.FC = () => {
+  const { content } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden relative">
+      <LanguageSwitcher />
       <Hero content={content.hero} />
 
       <Profile
@@ -29,6 +29,7 @@ const App: React.FC = () => {
 
       <TechStack
         title={content.sections.techStack}
+        toolsTitle={content.sections.tools}
         groups={content.techStack}
         tools={content.tools}
       />
@@ -45,6 +46,14 @@ const App: React.FC = () => {
 
       <Footer />
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 

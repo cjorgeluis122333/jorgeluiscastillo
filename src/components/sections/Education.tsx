@@ -7,6 +7,7 @@ interface EducationProps {
     education: {
         degree: string;
         institution: string;
+        institutionPrefix: string;
     };
 }
 
@@ -29,7 +30,7 @@ export const Education: React.FC<EducationProps> = ({ title, education }) => {
                         className="md:glass-card md:p-10 lg:p-12 py-2 group cursor-default"
                     >
                         <p className="text-[3.5vw] md:text-[clamp(1rem,2vw,1.5rem)] text-accent-muted leading-relaxed font-light group-hover:text-white transition-colors duration-300">
-                            {education.degree} en la {education.institution}.
+                            {education.degree} {education.institutionPrefix} {education.institution}.
                         </p>
                     </motion.div>
                 </div>
