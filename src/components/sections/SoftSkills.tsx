@@ -20,8 +20,8 @@ export const SoftSkills: React.FC<SoftSkillsProps> = ({ title, skills }) => {
                         {skills.map((skill, index) => (
                             <motion.div
                                 key={index}
-                                whileHover={{ x: 15, backgroundColor: "rgba(255,255,255,0.08)" }}
-                                className="p-4 md:p-6 glass-card border-none bg-white/5 text-accent-muted font-semibold text-lg md:text-xl"
+                                whileHover={{ x: 10, backgroundColor: "rgba(255,255,255,0.08)" }}
+                                className="p-3 md:p-6 glass-card border-none bg-white/5 text-accent-muted font-light text-[3.5vw] md:text-[clamp(1rem,1.8vw,1.3rem)] transition-colors duration-300 hover:text-white"
                             >
                                 {skill}
                             </motion.div>
