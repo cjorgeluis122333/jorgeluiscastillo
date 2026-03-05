@@ -18,7 +18,7 @@ export const CONTENT = {
                 { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/cjorgeluis122333/" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'github' }), label: "GitHub", url: "https://github.com/cjorgeluis122333" },
-                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'whatsapp' }), label: "WhatsApp", url: "https://wa.me/5355815615" }
+                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'whatsapp' }), label: "WhatsApp", url: "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte" }
             ]
         },
         sections: {
@@ -131,7 +131,7 @@ export const CONTENT = {
                 { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/cjorgeluis122333/" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'github' }), label: "GitHub", url: "https://github.com/cjorgeluis122333" },
-                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'whatsapp' }), label: "WhatsApp", url: "https://wa.me/5355815615" }
+                { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'whatsapp' }), label: "WhatsApp", url: "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte" }
             ]
         },
         sections: {
