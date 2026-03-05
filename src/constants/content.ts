@@ -31,16 +31,6 @@ export const CONTENT = {
         },
         experience: [
             {
-                company: "Club Cubano Venezolano (Venezuela)",
-                role: "Desarrollador de Software",
-                period: "Enero 2026 – Actualidad (Remoto)",
-                achievements: [
-                    "Lidero la creación desde cero de un sistema de gestión empresarial para la administración de personal, socios e invitados.",
-                    "Diseño e implementación de módulos de consulta en tiempo real y pasarelas de pago remoto, optimizando la recaudación y experiencia del usuario.",
-                    "Diseño de la arquitectura de base de datos y lógica de negocio para asegurar un sistema fluido y escalable."
-                ]
-            },
-            {
                 company: "Xetid (Cuba)",
                 role: "Desarrollador de Software",
                 period: "2022 – Actualidad",
@@ -48,6 +38,16 @@ export const CONTENT = {
                     "Liderazgo Técnico (Proyecto \"Reciclo\"): Dirección del desarrollo para la Empresa de Recuperación de Materias Primas de Santa Clara.",
                     "Desarrollo Mobile: Colaboración en la APK Ticked, garantizando estándares de calidad y optimización de rendimiento en Android.",
                     "Escalabilidad: Implementación de arquitecturas robustas para productos de impacto nacional."
+                ]
+            },
+            {
+                company: "Club Cubano Venezolano (Venezuela)",
+                role: "Desarrollador de Software",
+                period: "Enero 2026 – Actualidad (Remoto)",
+                achievements: [
+                    "Lidero la creación desde cero de un sistema de gestión empresarial para la administración de personal, socios e invitados.",
+                    "Diseño e implementación de módulos de consulta en tiempo real y pasarelas de pago remoto, optimizando la recaudación y experiencia del usuario.",
+                    "Diseño de la arquitectura de base de datos y lógica de negocio para asegurar un sistema fluido y escalable."
                 ]
             }
         ],
