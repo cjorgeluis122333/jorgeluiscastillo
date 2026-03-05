@@ -18,8 +18,8 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ company, role, p
         >
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
-                    <h3 className="text-lg md:text-2xl font-bold text-white">{role}</h3>
-                    <p className="text-accent-secondary font-medium text-sm md:text-base">{company}</p>
+                    <h3 className="text-[4.5vw] md:text-[clamp(1.2rem,2.5vw,2rem)] font-bold text-white mb-1 leading-tight">{role}</h3>
+                    <p className="text-accent-secondary font-medium text-[3vw] md:text-[clamp(0.9rem,1.8vw,1.2rem)]">{company}</p>
                 </div>
                 <span className="text-[10px] md:text-sm text-accent-muted mt-2 md:mt-0 font-medium px-3 py-1 bg-white/5 rounded-full border border-white/5 w-fit">
                     {period}
@@ -27,7 +27,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ company, role, p
             </div>
             <ul className="space-y-2 md:space-y-3">
                 {achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start text-accent-muted leading-relaxed text-sm md:text-base">
+                    <li key={index} className="flex items-start text-accent-muted leading-relaxed text-[3.5vw] md:text-[clamp(1rem,2vw,1.4rem)] font-light">
                         <span className="mr-3 text-accent-primary mt-1.5">•</span>
                         {achievement}
                     </li>

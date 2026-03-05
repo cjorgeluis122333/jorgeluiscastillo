@@ -20,7 +20,7 @@ export const Profile: React.FC<ProfileProps> = ({ title, text }) => {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="text-xl md:text-3xl text-accent-muted leading-relaxed font-light"
+                        className="text-[3.5vw] md:text-[clamp(1rem,2vw,1.5rem)] text-accent-muted leading-relaxed font-light"
                     >
                         {text}
                     </motion.p>
