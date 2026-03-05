@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
                         {content.footer.title}
                     </h2>
 
-                    <p className="text-muted text-lg mb-10 leading-relaxed">
+                    <p className="text-muted text-lg mb-10 leading-relaxed text-accent-muted">
                         {content.footer.description}
                     </p>
 
