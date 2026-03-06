@@ -25,7 +25,7 @@ export const TechStack: React.FC<TechStackProps> = ({ title, toolsTitle, groups,
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
                 <div className="md:col-span-4">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 md:sticky md:top-24 flex items-center gap-4 md:gap-5">
-                        <Code className="w-8 h-8 md:w-10 md:h-10 text-accent-primary" />
+                        <Code className="block md:hidden shrink-0 w-8 h-8 text-accent-primary" />
                         {title}
                     </h2>
                 </div>
