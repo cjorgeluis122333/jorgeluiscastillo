@@ -1,10 +1,24 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 interface SoftSkillsProps {
     title: string;
     skills: string[];
 }
+
+const containerVariants: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.09 } },
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, x: -18 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5, ease: 'easeOut' as const },
+    },
+};
 
 export const SoftSkills: React.FC<SoftSkillsProps> = ({ title, skills }) => {
     return (
@@ -16,17 +30,25 @@ export const SoftSkills: React.FC<SoftSkillsProps> = ({ title, skills }) => {
                     </h2>
                 </div>
                 <div className="md:col-span-8">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5"
+                    >
                         {skills.map((skill, index) => (
                             <motion.div
                                 key={index}
-                                whileHover={{ x: 10, backgroundColor: "rgba(255,255,255,0.08)" }}
-                                className="p-3 md:p-6 glass-card border-none bg-white/5 text-accent-muted font-light text-[3.5vw] md:text-[clamp(1rem,1.8vw,1.3rem)] transition-colors duration-300 hover:text-white"
+                                variants={itemVariants}
+                                whileHover={{ x: 6 }}
+                                className="p-4 md:p-5 glass-card border-l-2 border-accent-primary/25 hover:border-accent-primary/70 text-accent-muted font-light text-[3.5vw] md:text-[clamp(1rem,1.8vw,1.2rem)] transition-all duration-300 hover:text-white flex items-center gap-3"
                             >
-                                {skill}
+                                <span className="text-accent-primary shrink-0 font-bold text-base leading-none">&rsaquo;</span>
+                                <span>{skill}</span>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

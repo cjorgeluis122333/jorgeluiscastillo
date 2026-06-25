@@ -20,8 +20,18 @@ export default {
                 display: ['Outfit', 'system-ui', 'sans-serif'],
             },
             backgroundImage: {
-                'gradient-mesh': "radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0, transparent 50%), radial-gradient(at 100% 0%, rgba(34, 211, 238, 0.15) 0, transparent 50%)",
-            }
+                'gradient-mesh': [
+                    'radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0, transparent 50%)',
+                    'radial-gradient(at 100% 0%, rgba(34, 211, 238, 0.12) 0, transparent 50%)',
+                    'radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.07) 0, transparent 50%)',
+                    'radial-gradient(at 0% 100%, rgba(34, 211, 238, 0.05) 0, transparent 50%)',
+                ].join(', '),
+            },
+            boxShadow: {
+                'glow-primary': '0 0 30px rgba(99, 102, 241, 0.3)',
+                'glow-secondary': '0 0 30px rgba(34, 211, 238, 0.3)',
+                'glow-sm': '0 0 15px rgba(99, 102, 241, 0.2)',
+            },
         },
     },
     plugins: [],

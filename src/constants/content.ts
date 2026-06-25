@@ -58,7 +58,8 @@ export const CONTENT = {
             degree: "Licenciatura en Ciencias de la Computación (4to año en curso)",
             institution: "Universidad Central \"Marta Abreu\" de Las Villas (UCLV), Cuba",
             institutionPrefix: "en la",
-            icon: GraduationCap
+            icon: GraduationCap,
+            status: "En Curso"
         },
         techStack: [
             {
@@ -176,7 +177,8 @@ export const CONTENT = {
             degree: "Bachelor’s Degree in Computer Science (4th year in progress)",
             institution: "Central University \"Marta Abreu\" of Las Villas (UCLV), Cuba",
             institutionPrefix: "at",
-            icon: GraduationCap
+            icon: GraduationCap,
+            status: "In Progress"
         },
         techStack: [
             {
