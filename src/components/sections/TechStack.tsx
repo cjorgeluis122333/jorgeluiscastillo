@@ -24,6 +24,7 @@ const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>
     'Backend': Server,
     'Mobile (Android)': Smartphone,
     'Mobile': Smartphone,
+    'Mobile Cross-Platform': Smartphone,
     'Bases de Datos & Cach\u00e9': Database,
     'Databases & Cache': Database,
     'DevOps & Cloud': Cloud,

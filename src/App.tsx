@@ -7,22 +7,11 @@ import { TechStack } from './components/sections/TechStack';
 import { Education } from './components/sections/Education';
 import { SoftSkills } from './components/sections/SoftSkills';
 import { Footer } from './components/sections/Footer';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const AppContent: React.FC = () => {
   const { content } = useLanguage();
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <motion.div
@@ -31,7 +20,6 @@ const AppContent: React.FC = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden relative"
     >
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
       <LanguageSwitcher />
       <Hero content={content.hero} />
 

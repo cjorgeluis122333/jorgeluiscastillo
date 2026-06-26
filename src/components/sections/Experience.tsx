@@ -10,6 +10,7 @@ interface ExperienceProps {
         role: string;
         period: string;
         achievements: string[];
+        techs?: Array<{ name: string; icon: React.ComponentType<any> }>;
     }[];
 }
 

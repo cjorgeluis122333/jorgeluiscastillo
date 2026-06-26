@@ -187,7 +187,7 @@ No documentar implementaciones internas triviales; solo lo que un agente o desar
 
 - **Nombre**: Jorge Luis Castillo Vidal
 - **Rol actual**: Desarrollador Full-Stack & Mobile en Xetid (Cuba) y Club Cubano Venezolano (Venezuela, remoto)
-- **Formación**: 4to año de Licenciatura en Ciencias de la Computación, UCLV, Cuba
+- **Formación**: Licenciado en Ciencias de la Computación, UCLV, Cuba
 - **Contacto público**: Gmail · LinkedIn · GitHub · WhatsApp
 - **Especialidades**: Clean Architecture, Microservicios, Android (Kotlin/Jetpack Compose), Java/Spring Boot, PHP/Laravel, React/TypeScript
 - **Idiomas**: Español (nativo), Inglés B1

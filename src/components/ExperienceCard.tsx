@@ -5,9 +5,10 @@ interface ExperienceCardProps {
     role: string;
     period: string;
     achievements: string[];
+    techs?: Array<{ name: string; icon: React.ComponentType<any> }>;
 }
 
-export const ExperienceCard: React.FC<ExperienceCardProps> = ({ company, role, period, achievements }) => {
+export const ExperienceCard: React.FC<ExperienceCardProps> = ({ company, role, period, achievements, techs }) => {
     return (
         <div className="glass-card p-5 md:p-6 border-l-2 border-transparent group-hover:border-accent-primary/50 transition-all duration-300">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -32,6 +33,22 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ company, role, p
                     </li>
                 ))}
             </ul>
+            {techs && techs.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 pt-4 mt-4 border-t border-white/5">
+                    {techs.map((tech) => {
+                        const Icon = tech.icon;
+                        return (
+                            <span
+                                key={tech.name}
+                                className="flex items-center gap-1.5 px-2.5 py-1 bg-white/5 border border-white/10 rounded-lg text-[10px] md:text-xs text-accent-muted hover:text-white hover:border-accent-primary/30 hover:bg-white/8 transition-colors duration-150 cursor-default"
+                            >
+                                <Icon className="w-3 h-3 shrink-0" />
+                                {tech.name}
+                            </span>
+                        );
+                    })}
+                </div>
+            )}
         </div>
     );
 };

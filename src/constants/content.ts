@@ -1,9 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import {
     SiHtml5, SiCss, SiJavascript, SiTypescript, SiReact,
     SiSpringboot, SiLaravel, SiKotlin, SiPostgresql,
     SiMysql, SiSqlite, SiRedis, SiDocker, SiGithubactions,
-    SiCloudflare, SiVercel, SiGitlab, SiSupabase, SiAndroid
+    SiCloudflare, SiVercel, SiGitlab, SiSupabase, SiAndroid,
+    SiExpo, SiDjango, SiAstro
 } from 'react-icons/si';
 import { GraduationCap, Mail } from 'lucide-react';
 import { SvgIcon } from '../components/SvgIcon';
@@ -13,7 +14,7 @@ export const CONTENT = {
         hero: {
             name: "Jorge Luis Castillo Vidal",
             role: "Desarrollador de Software Full-Stack & Mobile",
-            description: "Desarrollador de software con más de 3 años de experiencia en el diseño y construcción de aplicaciones web y móviles. Estudiante de 4to año de Ciencias de la Computación (UCLV).",
+            description: "Desarrollador de software con más de 3 años de experiencia en el diseño y construcción de aplicaciones web y móviles. Licenciado en Ciencias de la Computación por la UCLV.",
             contact: [
                 { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
@@ -41,6 +42,16 @@ export const CONTENT = {
                     "Liderazgo Técnico (Proyecto \"Reciclo\"): Dirección del desarrollo para la Empresa de Recuperación de Materias Primas de Santa Clara.",
                     "Desarrollo Mobile: Colaboración en la APK Ticked, garantizando estándares de calidad y optimización de rendimiento en Android.",
                     "Escalabilidad: Implementación de arquitecturas robustas para productos de impacto nacional."
+                ],
+                techs: [
+                    { name: "Kotlin", icon: SiKotlin },
+                    { name: "Jetpack Compose", icon: SiAndroid },
+                    { name: "SQLite", icon: SiSqlite },
+                    { name: "GitLab CI", icon: SiGitlab },
+                    { name: "GitHub Actions", icon: SiGithubactions },
+                    { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'android-studio' }) },
+                    { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+                    { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
                 ]
             },
             {
@@ -51,15 +62,52 @@ export const CONTENT = {
                     "Lidero la creación desde cero de un sistema de gestión empresarial para la administración de personal, socios e invitados.",
                     "Diseño e implementación de módulos de consulta en tiempo real y pasarelas de pago remoto, optimizando la recaudación y experiencia del usuario.",
                     "Diseño de la arquitectura de base de datos y lógica de negocio para asegurar un sistema fluido y escalable."
+                ],
+                techs: [
+                    { name: "HTML5", icon: SiHtml5 },
+                    { name: "CSS3", icon: SiCss },
+                    { name: "JavaScript", icon: SiJavascript },
+                    { name: "TypeScript", icon: SiTypescript },
+                    { name: "React", icon: SiReact },
+                    { name: "PHP (Laravel)", icon: SiLaravel },
+                    { name: "PostgreSQL", icon: SiPostgresql },
+                    { name: "MySQL", icon: SiMysql },
+                    { name: "Docker", icon: SiDocker },
+                    { name: "Vercel", icon: SiVercel },
+                    { name: "Supabase", icon: SiSupabase },
+                    { name: "TiDB Cloud", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'tidb' }) },
+                    { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+                    { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'idea' }) },
+                    { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'phpstorm' }) },
+                    { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
+                ]
+            },
+            {
+                company: "Drecom LLC (EE.UU.)",
+                role: "Desarrollador de Software",
+                period: "Mayo 2026 – Actualidad (Remoto)",
+                achievements: [
+                    "Desarrollo de InvoFlash: solución de facturación con IA que automatiza la generación, envío y seguimiento de facturas para freelancers y pequeñas empresas.",
+                    "Desarrollo de EasyAgent: agente telefónico automatizado con IA que gestiona llamadas 24/7, agenda citas y brinda soporte con conversación natural.",
+                    "Desarrollo de WorkClock: herramienta de control de tiempo para seguimiento de proyectos, horas facturables y generación de reportes detallados."
+                ],
+                techs: [
+                    { name: "React Native", icon: SiReact },
+                    { name: "Expo", icon: SiExpo },
+                    { name: "Django (Python)", icon: SiDjango },
+                    { name: "Astro", icon: SiAstro },
+                    { name: "VS Code", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'vscode' }) },
+                    { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+                    { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
                 ]
             }
         ],
         education: {
-            degree: "Licenciatura en Ciencias de la Computación (4to año en curso)",
+            degree: "Licenciado en Ciencias de la Computación",
             institution: "Universidad Central \"Marta Abreu\" de Las Villas (UCLV), Cuba",
             institutionPrefix: "en la",
             icon: GraduationCap,
-            status: "En Curso"
+            status: "Graduado"
         },
         techStack: [
             {
@@ -69,7 +117,8 @@ export const CONTENT = {
                     { name: "CSS3", icon: SiCss },
                     { name: "JavaScript", icon: SiJavascript },
                     { name: "TypeScript", icon: SiTypescript },
-                    { name: "React", icon: SiReact }
+                    { name: "React", icon: SiReact },
+                    { name: "Astro", icon: SiAstro }
                 ]
             },
             {
@@ -77,6 +126,7 @@ export const CONTENT = {
                 skills: [
                     { name: "Java (Spring Boot)", icon: SiSpringboot },
                     { name: "PHP (Laravel)", icon: SiLaravel },
+                    { name: "Django (Python)", icon: SiDjango }
                 ]
             },
             {
@@ -84,6 +134,13 @@ export const CONTENT = {
                 skills: [
                     { name: "Kotlin", icon: SiKotlin },
                     { name: "Jetpack Compose", icon: SiAndroid }
+                ]
+            },
+            {
+                title: "Mobile Cross-Platform",
+                skills: [
+                    { name: "React Native", icon: SiReact },
+                    { name: "Expo", icon: SiExpo }
                 ]
             },
             {
@@ -110,6 +167,7 @@ export const CONTENT = {
         ],
         tools: [
             { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+            { name: "VS Code", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'vscode' }) },
             { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'idea' }) },
             { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'phpstorm' }) },
             { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'android-studio' }) },
@@ -132,7 +190,7 @@ export const CONTENT = {
         hero: {
             name: "Jorge Luis Castillo Vidal",
             role: "Full-Stack & Mobile Software Developer",
-            description: "Software developer with over 3 years of experience in designing and building web and mobile applications. 4th-year Computer Science student (UCLV).",
+            description: "Software developer with over 3 years of experience in designing and building web and mobile applications. Bachelor's Degree in Computer Science from UCLV.",
             contact: [
                 { icon: Mail, label: "Gmail", url: "mailto:cjorgeluis122333@gmail.com" },
                 { icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'linkedin' }), label: "LinkedIn", url: "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
@@ -160,6 +218,16 @@ export const CONTENT = {
                     "Technical Leadership (\"Reciclo\" Project): Directed the development for the Santa Clara Raw Materials Recovery Company.",
                     "Mobile Development: Collaborated on the Ticked APK, ensuring quality standards and performance optimization on Android.",
                     "Scalability: Implementation of robust architectures for products with national impact."
+                ],
+                techs: [
+                    { name: "Kotlin", icon: SiKotlin },
+                    { name: "Jetpack Compose", icon: SiAndroid },
+                    { name: "SQLite", icon: SiSqlite },
+                    { name: "GitLab CI", icon: SiGitlab },
+                    { name: "GitHub Actions", icon: SiGithubactions },
+                    { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'android-studio' }) },
+                    { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+                    { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
                 ]
             },
             {
@@ -170,15 +238,52 @@ export const CONTENT = {
                     "Leading the creation from scratch of an enterprise management system for personnel, members, and guests administration.",
                     "Design and implementation of real-time query modules and remote payment gateways, optimizing collection and user experience.",
                     "Database architecture and business logic design to ensure a fluid and scalable system."
+                ],
+                techs: [
+                    { name: "HTML5", icon: SiHtml5 },
+                    { name: "CSS3", icon: SiCss },
+                    { name: "JavaScript", icon: SiJavascript },
+                    { name: "TypeScript", icon: SiTypescript },
+                    { name: "React", icon: SiReact },
+                    { name: "PHP (Laravel)", icon: SiLaravel },
+                    { name: "PostgreSQL", icon: SiPostgresql },
+                    { name: "MySQL", icon: SiMysql },
+                    { name: "Docker", icon: SiDocker },
+                    { name: "Vercel", icon: SiVercel },
+                    { name: "Supabase", icon: SiSupabase },
+                    { name: "TiDB Cloud", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'tidb' }) },
+                    { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+                    { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'idea' }) },
+                    { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'phpstorm' }) },
+                    { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
+                ]
+            },
+            {
+                company: "Drecom LLC (USA)",
+                role: "Software Developer",
+                period: "May 2026 – Present (Remote)",
+                achievements: [
+                    "Development of InvoFlash: an AI-powered invoicing solution that automates invoice generation, sending, and tracking for freelancers and small businesses.",
+                    "Development of EasyAgent: an AI-powered automated phone agent that handles calls 24/7, schedules appointments, and provides natural conversational support.",
+                    "Development of WorkClock: a time-tracking tool for monitoring projects, billing hours, and generating detailed reports."
+                ],
+                techs: [
+                    { name: "React Native", icon: SiReact },
+                    { name: "Expo", icon: SiExpo },
+                    { name: "Django (Python)", icon: SiDjango },
+                    { name: "Astro", icon: SiAstro },
+                    { name: "VS Code", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'vscode' }) },
+                    { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+                    { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
                 ]
             }
         ],
         education: {
-            degree: "Bachelor’s Degree in Computer Science (4th year in progress)",
+            degree: "Bachelor's Degree in Computer Science",
             institution: "Central University \"Marta Abreu\" of Las Villas (UCLV), Cuba",
             institutionPrefix: "at",
             icon: GraduationCap,
-            status: "In Progress"
+            status: "Graduated"
         },
         techStack: [
             {
@@ -188,7 +293,8 @@ export const CONTENT = {
                     { name: "CSS3", icon: SiCss },
                     { name: "JavaScript", icon: SiJavascript },
                     { name: "TypeScript", icon: SiTypescript },
-                    { name: "React", icon: SiReact }
+                    { name: "React", icon: SiReact },
+                    { name: "Astro", icon: SiAstro }
                 ]
             },
             {
@@ -196,6 +302,7 @@ export const CONTENT = {
                 skills: [
                     { name: "Java (Spring Boot)", icon: SiSpringboot },
                     { name: "PHP (Laravel)", icon: SiLaravel },
+                    { name: "Django (Python)", icon: SiDjango }
                 ]
             },
             {
@@ -203,6 +310,13 @@ export const CONTENT = {
                 skills: [
                     { name: "Kotlin", icon: SiKotlin },
                     { name: "Jetpack Compose", icon: SiAndroid }
+                ]
+            },
+            {
+                title: "Mobile Cross-Platform",
+                skills: [
+                    { name: "React Native", icon: SiReact },
+                    { name: "Expo", icon: SiExpo }
                 ]
             },
             {
@@ -229,6 +343,7 @@ export const CONTENT = {
         ],
         tools: [
             { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
+            { name: "VS Code", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'vscode' }) },
             { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'idea' }) },
             { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'phpstorm' }) },
             { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'android-studio' }) },
