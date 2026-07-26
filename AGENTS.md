@@ -37,12 +37,14 @@ src/
 ├── components/
 │   ├── LanguageSwitcher.tsx    # Botón flotante para cambiar idioma
 │   ├── ExperienceCard.tsx      # Tarjeta de experiencia laboral
+│   ├── LibraryCard.tsx         # Tarjeta de librería open source (Community)
 │   ├── SkillBadge.tsx          # Badge de tecnología con ícono
 │   ├── SvgIcon.tsx             # Loader de SVGs personalizados (Git, LinkedIn, etc.)
 │   └── sections/
 │       ├── Hero.tsx            # Sección de bienvenida con nombre, rol y links de contacto
 │       ├── Profile.tsx         # Perfil profesional (texto descriptivo)
 │       ├── Experience.tsx      # Experiencia laboral (lista de ExperienceCard)
+│       ├── Community.tsx       # Aportes a la comunidad (librerías open source)
 │       ├── TechStack.tsx       # Stack tecnológico por categorías + herramientas
 │       ├── Education.tsx       # Formación académica
 │       ├── SoftSkills.tsx      # Habilidades blandas
@@ -135,9 +137,13 @@ const itemVariants: Variants = {
 - **No** usar cubic-bezier como array `[n, n, n, n]` en la prop `ease`; en su lugar usar strings (`'easeOut'`) con `as const`. Framer Motion 12 no acepta arrays sin tipo explícito.
 - No agregar animaciones que afecten el rendimiento en móvil (evitar `scale` pesado o múltiples `blur` simultáneos).
 
-### Patrón de timeline (Experience)
+### Patrón de timeline (Experience y Community)
 
-La sección Experience usa una línea vertical con dots de timeline gestionados desde `Experience.tsx` (no desde `ExperienceCard`). El contenedor de cards usa `position: relative` con la línea en `absolute left-[5px]`. Cada card tiene un wrapper `motion.div` con clase `group` que activa estilos en `ExperienceCard` via `group-hover:`.
+Las secciones `Experience` y `Community` comparten el mismo patrón visual: una línea vertical con dots de timeline gestionados **desde la sección** (no desde la card). El contenedor de cards usa `position: relative` con la línea en `absolute left-[5px]` y la dot en `absolute left-[1px] top-[26px]`. Cada card tiene un wrapper `motion.div` con clase `group` que activa estilos en `ExperienceCard` / `LibraryCard` via `group-hover:`.
+
+### Botón "Copiar comando" (LibraryCard)
+
+`LibraryCard` muestra un bloque con el comando de instalación (`npm install ...`) y un botón que usa `navigator.clipboard.writeText` para copiarlo. Tras copiar, el ícono cambia de `Copy` a `Check` durante 2s. El bloque usa `bg-black/40` con texto monoespaciado y `truncate` para evitar overflow en móvil.
 
 ---
 
@@ -154,7 +160,17 @@ La sección Experience usa una línea vertical con dots de timeline gestionados 
 
 ### Estructura de `content.ts` — campos actuales
 
-Cada entrada de `education` ahora incluye el campo `status` (string) además de `degree`, `institution`, `institutionPrefix` e `icon`. **Mantener ambas versiones (ES/EN) sincronizadas** si se añaden campos.
+Cada entrada de `education` ahora incluye el campo `status` (string) además de `degree`, `institution`, `institutionPrefix` e `icon`.
+
+Existe además el array `community` (uno por idioma) para listar librerías open source. Cada entrada tiene:
+
+- `name` — nombre del paquete / librería (idéntico en ES/EN).
+- `type` — badge corto (ej. `"React Library"`).
+- `description` — único campo que se traduce entre ES/EN.
+- `install` — comando `npm install ...`.
+- `links.github` / `links.npm` / `links.demo` — URLs completos.
+
+**Mantener ambas versiones (ES/EN) sincronizadas** si se añaden campos o librerías nuevas.
 
 ---
 

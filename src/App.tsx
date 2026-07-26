@@ -3,6 +3,7 @@ import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { Hero } from './components/sections/Hero';
 import { Profile } from './components/sections/Profile';
 import { Experience } from './components/sections/Experience';
+import { Community } from './components/sections/Community';
 import { TechStack } from './components/sections/TechStack';
 import { Education } from './components/sections/Education';
 import { SoftSkills } from './components/sections/SoftSkills';
@@ -31,6 +32,11 @@ const AppContent: React.FC = () => {
       <Experience
         title={content.sections.experience}
         experiences={content.experience}
+      />
+
+      <Community
+        title={content.sections.community}
+        libraries={content.community}
       />
 
       <TechStack

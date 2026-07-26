@@ -25,6 +25,7 @@ export const CONTENT = {
         sections: {
             profile: "Perfil Profesional",
             experience: "Experiencia Laboral",
+            community: "Aportes a la Comunidad",
             education: "Educación",
             techStack: "Stack Tecnológico",
             softSkills: "Habilidades Blandas",
@@ -109,6 +110,30 @@ export const CONTENT = {
             icon: GraduationCap,
             status: "Graduado"
         },
+        community: [
+            {
+                name: "jl-particles-interactive",
+                type: "React Library",
+                description: "Librería React para fondos de partículas interactivas y efectos de texto animados.",
+                install: "npm install jl-particle-interactive",
+                links: {
+                    github: "https://github.com/cjorgeluis122333/jl-particles-interactive.git",
+                    npm: "https://www.npmjs.com/package/jl-particle-interactive",
+                    demo: "https://jl-particles-interactive-l7djz9wub-jorge-luis-projects-39ec2794.vercel.app/"
+                }
+            },
+            {
+                name: "jl-react-virtual-signature-canvas",
+                type: "React Library",
+                description: "Librería React para flujos de firma virtual con validación y detección.",
+                install: "npm install jl-react-virtual-signature-canvas",
+                links: {
+                    github: "https://github.com/cjorgeluis122333/jl-react-virtual-signature-canvas.git",
+                    npm: "https://www.npmjs.com/package/jl-react-virtual-signature-canvas",
+                    demo: "https://jl-react-virtual-signature-canvas.vercel.app/"
+                }
+            }
+        ],
         techStack: [
             {
                 title: "Frontend",
@@ -193,6 +218,7 @@ export const CONTENT = {
         sections: {
             profile: "Professional Profile",
             experience: "Work Experience",
+            community: "Community Contributions",
             education: "Education",
             techStack: "Tech Stack",
             softSkills: "Soft Skills",
@@ -277,6 +303,30 @@ export const CONTENT = {
             icon: GraduationCap,
             status: "Graduated"
         },
+        community: [
+            {
+                name: "jl-particles-interactive",
+                type: "React Library",
+                description: "React library for interactive particle backgrounds and animated text effects.",
+                install: "npm install jl-particle-interactive",
+                links: {
+                    github: "https://github.com/cjorgeluis122333/jl-particles-interactive.git",
+                    npm: "https://www.npmjs.com/package/jl-particle-interactive",
+                    demo: "https://jl-particles-interactive-l7djz9wub-jorge-luis-projects-39ec2794.vercel.app/"
+                }
+            },
+            {
+                name: "jl-react-virtual-signature-canvas",
+                type: "React Library",
+                description: "React library for virtual signature workflows with validation and detection features.",
+                install: "npm install jl-react-virtual-signature-canvas",
+                links: {
+                    github: "https://github.com/cjorgeluis122333/jl-react-virtual-signature-canvas.git",
+                    npm: "https://www.npmjs.com/package/jl-react-virtual-signature-canvas",
+                    demo: "https://jl-react-virtual-signature-canvas.vercel.app/"
+                }
+            }
+        ],
         techStack: [
             {
                 title: "Frontend",
