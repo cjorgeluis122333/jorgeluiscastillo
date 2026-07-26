@@ -130,17 +130,10 @@ export const CONTENT = {
                 ]
             },
             {
-                title: "Mobile (Android)",
+                title: "Mobile",
                 skills: [
-                    { name: "Kotlin", icon: SiKotlin },
-                    { name: "Jetpack Compose", icon: SiAndroid }
-                ]
-            },
-            {
-                title: "Mobile Cross-Platform",
-                skills: [
-                    { name: "React Native", icon: SiReact },
-                    { name: "Expo", icon: SiExpo }
+                    { name: "Kotlin (Jetpack Compose)", icon: SiKotlin },
+                    { name: "React Native (Expo)", icon: SiExpo }
                 ]
             },
             {
@@ -167,8 +160,7 @@ export const CONTENT = {
         ],
         tools: [
             { name: "Git", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'git' }) },
-            { name: "VS Code", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'vscode' }) },
-            { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'idea' }) },
+           { name: "IntelliJ IDEA", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'idea' }) },
             { name: "PhpStorm", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'phpstorm' }) },
             { name: "Android Studio", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'android-studio' }) },
             { name: "Postman", icon: (props: any) => React.createElement(SvgIcon, { ...props, name: 'postman' }) }
