@@ -56,13 +56,13 @@ export const LibraryCard: React.FC<LibraryCardProps> = ({ name, type, descriptio
                 </button>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+            <div className="flex flex-nowrap gap-1.5 pt-4 border-t border-white/5">
                 <motion.a
                     href={links.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -3 }}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-accent-muted hover:text-white hover:border-accent-primary/40 hover:bg-white/10 transition-colors duration-150"
+                    className="flex items-center gap-1.5 px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] sm:text-xs text-accent-muted hover:text-white hover:border-accent-primary/40 hover:bg-white/10 transition-colors duration-150 shrink"
                 >
                     <SvgIcon name="github" className="w-3.5 h-3.5" />
                     GitHub
@@ -72,7 +72,7 @@ export const LibraryCard: React.FC<LibraryCardProps> = ({ name, type, descriptio
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -3 }}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-accent-muted hover:text-white hover:border-accent-primary/40 hover:bg-white/10 transition-colors duration-150"
+                    className="flex items-center gap-1.5 px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] sm:text-xs text-accent-muted hover:text-white hover:border-accent-primary/40 hover:bg-white/10 transition-colors duration-150 shrink"
                 >
                     <Package className="w-3.5 h-3.5" />
                     npm
@@ -82,7 +82,7 @@ export const LibraryCard: React.FC<LibraryCardProps> = ({ name, type, descriptio
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -3 }}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-accent-primary/10 border border-accent-primary/20 rounded-lg text-xs text-accent-primary hover:text-white hover:bg-accent-primary/20 transition-colors duration-150"
+                    className="flex items-center gap-1.5 px-2 py-1.5 bg-accent-primary/10 border border-accent-primary/20 rounded-lg text-[10px] sm:text-xs text-accent-primary hover:text-white hover:bg-accent-primary/20 transition-colors duration-150 shrink"
                 >
                     <ExternalLink className="w-3.5 h-3.5" />
                     Demo / Docs
