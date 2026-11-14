@@ -32,7 +32,7 @@ src/
 ├── index.css                   # Estilos globales, custom utilities y @keyframes
 ├── data/
 │   ├── portfolio.json          # ÚNICA fuente de contenido (todos los idiomas, secciones, iconos)
-│   └── portfolio.ts            # Importa el JSON + validatePortfolio() (errores legibles)
+│   └── portfolio.ts            # Importa el JSON + esquema de validación + getVisibleSections()
 ├── types/
 │   └── portfolio.ts            # Tipos del JSON (PortfolioData, Section, ...)
 ├── context/
@@ -157,7 +157,7 @@ Las secciones `Experience` y `Community` comparten el mismo patrón visual: una 
 - **Componentes**: funcionales con TypeScript, `React.FC<Props>` con interfaz de props explícita en el mismo archivo.
 - **Exportaciones**: named exports (`export const Hero`), no default en componentes.
 - **Props de contenido**: cada sección recibe su contenido como prop desde `App.tsx` (`renderSection`); solo `LanguageSwitcher` usa el contexto. Los tipos de props salen de `src/types/portfolio.ts` (`Omit<XxxSection, 'type'>`), no se redeclaran.
-- **Nueva sección**: añadir su tipo en `types/portfolio.ts`, su regla en `REQUIRED_FIELDS` (`data/portfolio.ts`), el componente y su `case` en `renderSection` (`App.tsx`). Añadir *contenido* a una sección existente no requiere tocar código.
+- **Nueva sección**: añadir su tipo en `types/portfolio.ts`, su forma en `SECTION_SHAPES` (`data/portfolio.ts`), el caso de vacío en `getVisibleSections`, el componente y su `case` en `renderSection` (`App.tsx`). Añadir *contenido* a una sección existente no requiere tocar código.
 - **Iconos**: nunca importar iconos en los datos. En el JSON `icon` es un string y `components/Icon.tsx` lo resuelve; en componentes usar `<Icon name={...} />`.
 - **No hay routing**: el portafolio es una sola página (SPA sin React Router).
 - **Framer Motion variants**: siempre importar `type Variants` y tipar los objetos de variantes explícitamente. Ver sección Animaciones.
@@ -179,7 +179,10 @@ Las secciones `Experience` y `Community` comparten el mismo patrón visual: una 
   - `softSkills` → `items[string]`
 - `footer`: `title`, `description`, `button?{icon,label,url}`, `location?`.
 - `ui`: textos sueltos de interfaz (`copyCommand`).
-- `validatePortfolio()` comprueba lo esencial y `App.tsx` muestra los errores en pantalla si hay alguno.
+- **Validación** (`data/portfolio.ts`, dirigida por un esquema `Shape`; al añadir un campo hay que declararlo ahí además de en `types/portfolio.ts`):
+  - *Errores* (falta un campo obligatorio, tipo incorrecto, `type` de sección desconocido, a cualquier profundidad): `App.tsx` sustituye la página por la lista de errores.
+  - *Avisos* (`console.warn`, no bloquean): claves no reconocidas (probables erratas) y diferencias entre idiomas (secciones u orden distintos, distinto nº de elementos o de enlaces de contacto). El idioma de referencia es `defaultLanguage`.
+- **Secciones vacías**: `getVisibleSections()` oculta las secciones sin contenido (`items`/`groups` vacíos, `text` en blanco) y los grupos de `techStack` sin `skills`. Dejar una lista vacía equivale a borrar la sección. `hero` y `footer` son obligatorios.
 
 **Mantener todos los idiomas sincronizados** al añadir campos o elementos.
 

@@ -12,7 +12,7 @@ export interface Tech {
 export interface ContactLink {
     label: string;
     url: string;
-    icon: string;
+    icon?: string;
 }
 
 export interface Hero {

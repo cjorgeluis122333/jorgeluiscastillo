@@ -8,7 +8,7 @@ import { TechStack } from './components/sections/TechStack';
 import { Education } from './components/sections/Education';
 import { SoftSkills } from './components/sections/SoftSkills';
 import { Footer } from './components/sections/Footer';
-import { portfolio, validatePortfolio } from './data/portfolio';
+import { getVisibleSections, validation } from './data/portfolio';
 import type { LanguageContent, Section } from './types/portfolio';
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -48,7 +48,7 @@ const AppContent: React.FC = () => {
             <LanguageSwitcher />
             <Hero content={content.hero} />
 
-            {content.sections.map((section, index) => (
+            {getVisibleSections(content.sections).map((section, index) => (
                 <React.Fragment key={`${section.type}-${index}`}>{renderSection(section, content.ui)}</React.Fragment>
             ))}
 
@@ -69,8 +69,7 @@ const ConfigError: React.FC<{ errors: string[] }> = ({ errors }) => (
 );
 
 const App: React.FC = () => {
-    const errors = validatePortfolio(portfolio);
-    if (errors.length > 0) return <ConfigError errors={errors} />;
+    if (validation.errors.length > 0) return <ConfigError errors={validation.errors} />;
 
     return (
         <LanguageProvider>
