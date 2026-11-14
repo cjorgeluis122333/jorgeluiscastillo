@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
                 {/* Name */}
                 <motion.h1
                     variants={itemVariants}
-                    className="text-[8.5vw] md:text-[clamp(4rem,6vw,8.5rem)] font-bold mb-10 md:mb-12 text-white leading-none tracking-tighter whitespace-nowrap py-2"
+                    className="text-[8.5vw] md:text-[clamp(2.5rem,6vw,4.25rem)] font-bold mb-10 md:mb-12 text-white leading-none tracking-tighter whitespace-nowrap py-2"
                 >
                     {firstName}{' '}
                     <span className="text-gradient">{lastName}</span>
