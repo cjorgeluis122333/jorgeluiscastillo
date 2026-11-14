@@ -40,7 +40,10 @@ src/
 ├── assets/icons/               # SVG/PNG propios; el nombre del fichero es el nombre del icono
 ├── components/
 │   ├── Icon.tsx                # Resuelve un icono a partir de un string (ver "Iconos")
-│   ├── LanguageSwitcher.tsx    # Selector flotante; se oculta con un solo idioma
+│   ├── Navbar.tsx              # Barra superior sticky: logo (iniciales), menú de secciones y selector de idioma
+│   ├── LanguageSwitcher.tsx    # Píldora ES/EN (dentro de Navbar); se oculta con un solo idioma
+│   ├── SectionHeading.tsx      # Título de sección con la última palabra en degradado
+│   ├── CodeCard.tsx            # Ventana de código decorativa del Hero (resalta cadenas/números/const)
 │   ├── ExperienceCard.tsx      # Tarjeta de experiencia laboral
 │   ├── LibraryCard.tsx         # Tarjeta de proyecto/librería (Community)
 │   ├── SkillBadge.tsx          # Badge de tecnología con ícono
@@ -142,9 +145,16 @@ const itemVariants: Variants = {
 - **No** usar cubic-bezier como array `[n, n, n, n]` en la prop `ease`; en su lugar usar strings (`'easeOut'`) con `as const`. Framer Motion 12 no acepta arrays sin tipo explícito.
 - No agregar animaciones que afecten el rendimiento en móvil (evitar `scale` pesado o múltiples `blur` simultáneos).
 
-### Patrón de timeline (Experience y Community)
+### Patrón de timeline (solo Experience)
 
-Las secciones `Experience` y `Community` comparten el mismo patrón visual: una línea vertical con dots de timeline gestionados **desde la sección** (no desde la card). El contenedor de cards usa `position: relative` con la línea en `absolute left-[5px]` y la dot en `absolute left-[1px] top-[26px]`. Cada card tiene un wrapper `motion.div` con clase `group` que activa estilos en `ExperienceCard` / `LibraryCard` via `group-hover:`.
+`Experience` muestra una línea vertical con degradado (`absolute left-[5px]`) y dots cian brillantes (`absolute left-[1px] top-[30px]`) gestionados **desde la sección**, en móvil y escritorio. Cada card tiene un wrapper `motion.div` con clase `group`. `Community` usa ahora una cuadrícula de 2 columnas (`md:grid-cols-2`) sin timeline.
+
+### Cabeceras y utilidades de la versión actual
+
+- Las secciones usan `<SectionHeading>` (título arriba, contenido a ancho completo; sin columna sticky). `Profile` usa la clase `.eyebrow` + texto grande.
+- Nuevas utilidades en `index.css`: `.icon-box` (cuadro con degradado para iconos), `.eyebrow` (etiqueta en mayúsculas cian), `.btn-gradient` (botón primario de degradado con glow). Para cambiar el radio de `.glass-card` en un uso concreto se usa `!rounded-*`.
+- Objetivo táctil: botones y enlaces interactivos con `min-h-11`/`min-h-12` (≥44 px).
+- El mesh de fondo (`gradient-mesh`) es más intenso (0.12–0.22) que antes.
 
 ### Botón "Copiar comando" (LibraryCard)
 
@@ -156,7 +166,7 @@ Las secciones `Experience` y `Community` comparten el mismo patrón visual: una 
 
 - **Componentes**: funcionales con TypeScript, `React.FC<Props>` con interfaz de props explícita en el mismo archivo.
 - **Exportaciones**: named exports (`export const Hero`), no default en componentes.
-- **Props de contenido**: cada sección recibe su contenido como prop desde `App.tsx` (`renderSection`); solo `LanguageSwitcher` usa el contexto. Los tipos de props salen de `src/types/portfolio.ts` (`Omit<XxxSection, 'type'>`), no se redeclaran.
+- **Props de contenido**: cada sección recibe su contenido como prop desde `App.tsx` (`renderSection`); solo `LanguageSwitcher` (vía `Navbar`) usa el contexto. Los tipos de props salen de `src/types/portfolio.ts` (`Omit<XxxSection, 'type'>`), no se redeclaran.
 - **Nueva sección**: añadir su tipo en `types/portfolio.ts`, su forma en `SECTION_SHAPES` (`data/portfolio.ts`), el caso de vacío en `getVisibleSections`, el componente y su `case` en `renderSection` (`App.tsx`). Añadir *contenido* a una sección existente no requiere tocar código.
 - **Iconos**: nunca importar iconos en los datos. En el JSON `icon` es un string y `components/Icon.tsx` lo resuelve; en componentes usar `<Icon name={...} />`.
 - **No hay routing**: el portafolio es una sola página (SPA sin React Router).
@@ -169,15 +179,15 @@ Las secciones `Experience` y `Community` comparten el mismo patrón visual: una 
 { defaultLanguage?, languages: { <código>: { ui?, hero, sections[], footer } } }
 ```
 
-- `hero`: `name`, `role`, `description`, `contact[{icon,label,url}]`. La segunda mitad del nombre (mín. 1 palabra) lleva `.text-gradient`.
-- `sections[]`: el **orden del array es el orden de la página**. Cada una tiene `type`, `title` e `icon?` (icono del título; hay uno por defecto según el tipo).
+- `hero`: `name`, `role`, `description`, `contact[{icon,label,url}]`, `stats?[{value,label}]` (tarjetas bajo el hero), `code?{file,lines[]}` (tarjeta de código; las líneas se resaltan con regex). La segunda mitad del nombre (mín. 1 palabra) lleva `.text-gradient`. El último contacto se pinta como botón de degradado.
+- `sections[]`: el **orden del array es el orden de la página**. Cada una tiene `type`, `title`, `nav?` (etiqueta corta del menú superior; sin `nav` no aparece en el menú) e `icon?` (icono junto al título; ya no hay icono por defecto). Cada sección se envuelve en `#section-<type>` para el scroll del menú.
   - `profile` → `text`
   - `experience` → `items[{company,role,period,achievements[],techs?[{name,icon}]}]`
   - `community` → `items[{name,type?,description,install?,links?[{label,url,icon}]}]` (el último link se resalta si hay más de uno)
   - `techStack` → `groups[{title,icon?,skills[{name,icon}]}]` (las herramientas son un grupo más)
   - `education` → `items[{degree,institution,status?}]`
   - `softSkills` → `items[string]`
-- `footer`: `title`, `description`, `button?{icon,label,url}`, `location?`.
+- `footer`: `title`, `nav?` (enlace del menú a `#contact`), `description`, `button?{icon,label,url}`, `location?`.
 - `ui`: textos sueltos de interfaz (`copyCommand`).
 - **Validación** (`data/portfolio.ts`, dirigida por un esquema `Shape`; al añadir un campo hay que declararlo ahí además de en `types/portfolio.ts`):
   - *Errores* (falta un campo obligatorio, tipo incorrecto, `type` de sección desconocido, a cualquier profundidad): `App.tsx` sustituye la página por la lista de errores.

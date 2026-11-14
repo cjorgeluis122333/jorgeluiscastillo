@@ -7,6 +7,25 @@
         "name": "Jorge Luis Castillo Vidal",
         "role": "Desarrollador de Software Full-Stack & Mobile",
         "description": "Desarrollador de software con más de 3 años de experiencia en el diseño y construcción de aplicaciones web y móviles. Licenciado en Ciencias de la Computación por la UCLV.",
+        "stats": [
+          { "value": "3+", "label": "años de experiencia" },
+          { "value": "3", "label": "empresas: Cuba, Venezuela y EE.UU." },
+          { "value": "2", "label": "librerías publicadas en npm" },
+          { "value": "6", "label": "áreas de stack: web, mobile y cloud" }
+        ],
+        "code": {
+          "file": "jorge.ts",
+          "lines": [
+            "const jorge = {",
+            "  role: \"Full-Stack & Mobile\",",
+            "  years: 3,",
+            "  stack: [\"Kotlin\", \"React\", \"Laravel\", \"Spring\"],",
+            "  arch: \"Clean Architecture\",",
+            "  now: [\"Xetid\", \"CCV\", \"Drecom\"],",
+            "  lang: [\"es\", \"en·B1\"],",
+            "}"
+          ]
+        },
         "contact": [
           { "icon": "lucide:mail", "label": "Gmail", "url": "mailto:cjorgeluis122333@gmail.com" },
           { "icon": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
@@ -23,6 +42,7 @@
         {
           "type": "experience",
           "title": "Experiencia Laboral",
+          "nav": "Experiencia",
           "items": [
             {
               "company": "Xetid (Cuba)",
@@ -96,6 +116,7 @@
         {
           "type": "community",
           "title": "Aportes a la Comunidad",
+          "nav": "Comunidad",
           "items": [
             {
               "name": "jl-particles-interactive",
@@ -124,6 +145,7 @@
         {
           "type": "techStack",
           "title": "Stack Tecnológico",
+          "nav": "Stack",
           "groups": [
             {
               "title": "Frontend",
@@ -215,6 +237,7 @@
       ],
       "footer": {
         "title": "Desarrollo el software que tu negocio necesita.",
+        "nav": "Contacto",
         "description": "Soluciones escalables, reales y directas al punto. Cuéntame tu idea y empecemos a trabajar hoy mismo.",
         "button": {
           "icon": "whatsapp",
@@ -230,6 +253,25 @@
         "name": "Jorge Luis Castillo Vidal",
         "role": "Full-Stack & Mobile Software Developer",
         "description": "Software developer with over 3 years of experience in designing and building web and mobile applications. Bachelor's Degree in Computer Science from UCLV.",
+        "stats": [
+          { "value": "3+", "label": "years of experience" },
+          { "value": "3", "label": "companies: Cuba, Venezuela and USA" },
+          { "value": "2", "label": "libraries published on npm" },
+          { "value": "6", "label": "stack areas: web, mobile and cloud" }
+        ],
+        "code": {
+          "file": "jorge.ts",
+          "lines": [
+            "const jorge = {",
+            "  role: \"Full-Stack & Mobile\",",
+            "  years: 3,",
+            "  stack: [\"Kotlin\", \"React\", \"Laravel\", \"Spring\"],",
+            "  arch: \"Clean Architecture\",",
+            "  now: [\"Xetid\", \"CCV\", \"Drecom\"],",
+            "  lang: [\"es\", \"en·B1\"],",
+            "}"
+          ]
+        },
         "contact": [
           { "icon": "lucide:mail", "label": "Gmail", "url": "mailto:cjorgeluis122333@gmail.com" },
           { "icon": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
@@ -246,6 +288,7 @@
         {
           "type": "experience",
           "title": "Work Experience",
+          "nav": "Experience",
           "items": [
             {
               "company": "Xetid (Cuba)",
@@ -319,6 +362,7 @@
         {
           "type": "community",
           "title": "Community Contributions",
+          "nav": "Community",
           "items": [
             {
               "name": "jl-particles-interactive",
@@ -347,6 +391,7 @@
         {
           "type": "techStack",
           "title": "Tech Stack",
+          "nav": "Stack",
           "groups": [
             {
               "title": "Frontend",
@@ -447,6 +492,7 @@
       ],
       "footer": {
         "title": "I build the software your business needs.",
+        "nav": "Contact",
         "description": "Scalable, real, and straight-to-the-point solutions. Tell me about your idea and let's get to work today.",
         "button": {
           "icon": "whatsapp",

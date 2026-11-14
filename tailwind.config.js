@@ -21,10 +21,10 @@ export default {
             },
             backgroundImage: {
                 'gradient-mesh': [
-                    'radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0, transparent 50%)',
-                    'radial-gradient(at 100% 0%, rgba(34, 211, 238, 0.12) 0, transparent 50%)',
-                    'radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.07) 0, transparent 50%)',
-                    'radial-gradient(at 0% 100%, rgba(34, 211, 238, 0.05) 0, transparent 50%)',
+                    'radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.22) 0, transparent 42%)',
+                    'radial-gradient(at 100% 0%, rgba(34, 211, 238, 0.14) 0, transparent 42%)',
+                    'radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.18) 0, transparent 42%)',
+                    'radial-gradient(at 0% 100%, rgba(34, 211, 238, 0.12) 0, transparent 42%)',
                 ].join(', '),
             },
             boxShadow: {

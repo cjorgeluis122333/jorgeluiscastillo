@@ -22,7 +22,7 @@ const opt = (rule: Rule) => ({ rule, required: false });
 const tech = obj({ name: req(str), icon: opt(str) });
 const link = obj({ label: req(str), url: req(str), icon: opt(str) });
 
-const baseSection = { title: req(str), icon: opt(str) };
+const baseSection = { title: req(str), nav: opt(str), icon: opt(str) };
 
 const SECTION_SHAPES: Record<SectionType, Shape> = {
     profile: { ...baseSection, text: req(str) },
@@ -59,9 +59,16 @@ const SECTION_SHAPES: Record<SectionType, Shape> = {
 
 const LANGUAGE_SHAPE: Shape = {
     ui: opt(obj({ copyCommand: opt(str) })),
-    hero: req(obj({ name: req(str), role: req(str), description: req(str), contact: req(list(link)) })),
+    hero: req(obj({
+        name: req(str),
+        role: req(str),
+        description: req(str),
+        contact: req(list(link)),
+        stats: opt(list(obj({ value: req(str), label: req(str) }))),
+        code: opt(obj({ file: req(str), lines: req(list(str)) })),
+    })),
     sections: req(list(any)), // cada sección se valida aparte, según su `type`
-    footer: req(obj({ title: req(str), description: req(str), button: opt(link), location: opt(str) })),
+    footer: req(obj({ title: req(str), nav: opt(str), description: req(str), button: opt(link), location: opt(str) })),
 };
 
 const isObject = (value: unknown): value is Record<string, unknown> =>

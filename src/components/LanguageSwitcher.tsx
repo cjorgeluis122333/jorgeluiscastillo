@@ -1,54 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
+/** Selector de idioma en forma de píldora. Se oculta con un solo idioma. */
 export const LanguageSwitcher: React.FC = () => {
-    const { language, languages, toggleLanguage } = useLanguage();
-    const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-
-            // Show if at top, or scrolling up
-            if (currentScrollY < 50 || currentScrollY < lastScrollY) {
-                setIsVisible(true);
-            }
-            // Hide if scrolling down and not at top
-            else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setIsVisible(false);
-            }
-
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY]);
+    const { language, languages, setLanguage } = useLanguage();
 
     if (languages.length < 2) return null;
 
     return (
-        <motion.button
-            initial={{ opacity: 0, y: -20 }}
-            animate={{
-                opacity: isVisible ? 1 : 0,
-                y: isVisible ? 0 : -100,
-                pointerEvents: isVisible ? 'auto' : 'none'
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={toggleLanguage}
-            className="fixed top-6 right-6 z-50 px-4 py-2 glass-card border border-white/10 text-white font-medium text-sm flex items-center gap-2"
-        >
-            {languages.map((code, index) => (
-                <React.Fragment key={code}>
-                    {index > 0 && <div className="w-[1px] h-4 bg-white/20" />}
-                    <span className={language === code ? 'text-accent-primary' : 'text-accent-muted'}>{code.toUpperCase()}</span>
-                </React.Fragment>
-            ))}
-        </motion.button>
+        <div className="glass-card !rounded-full p-1 flex font-mono text-xs" role="group">
+            {languages.map((code) => {
+                const active = language === code;
+                return (
+                    <button
+                        key={code}
+                        type="button"
+                        onClick={() => setLanguage(code)}
+                        aria-pressed={active}
+                        className={`min-w-11 min-h-9 px-2 rounded-full font-medium transition-colors duration-200 ${
+                            active
+                                ? 'bg-gradient-to-br from-accent-primary to-accent-secondary text-background'
+                                : 'text-accent-muted hover:text-white'
+                        }`}
+                    >
+                        {code.toUpperCase()}
+                    </button>
+                );
+            })}
+        </div>
     );
 };
