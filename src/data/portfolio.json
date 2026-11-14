@@ -18,9 +18,9 @@
           "lines": [
             "const jorge = {",
             "  role: \"Full-Stack & Mobile\",",
-            "  years: 3,",
-            "  now: [\"Xetid\", \"CCV\", \"Drecom\"],",
-            "  lang: [\"es\", \"en·B1\"],",
+            "  años: 3,",
+            "  empresas: [\"Xetid\", \"CCV\", \"Drecom\"],",
+            "  idiomas: [\"es\", \"en·B1\"],",
             "}"
           ]
         },
@@ -264,8 +264,6 @@
             "  role: \"Full-Stack & Mobile\",",
             "  years: 3,",
             "  stack: [\"Kotlin\", \"React\", \"Laravel\", \"Spring\"],",
-            "  arch: \"Clean Architecture\",",
-            "  now: [\"Xetid\", \"CCV\", \"Drecom\"],",
             "  lang: [\"es\", \"en·B1\"],",
             "}"
           ]
