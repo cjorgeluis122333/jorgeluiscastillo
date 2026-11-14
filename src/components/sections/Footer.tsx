@@ -1,11 +1,10 @@
 import React from 'react';
-import { useLanguage } from '../../context/LanguageContext';
-import { SvgIcon } from '../SvgIcon';
+import { Icon } from '../Icon';
+import type { Footer as FooterContent } from '../../types/portfolio';
 
-export const Footer: React.FC = () => {
-    const { content } = useLanguage();
+type FooterProps = FooterContent & { ownerName: string };
 
-    const whatsappContact = content.hero.contact.find(c => c.label === "WhatsApp");
+export const Footer: React.FC<FooterProps> = ({ title, description, button, location, ownerName }) => {
 
     return (
         <footer className="relative border-t border-white/5 pt-24 pb-12 overflow-hidden">
@@ -23,16 +22,16 @@ export const Footer: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-2xl mx-auto text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient">
-                        {content.footer.title}
+                        {title}
                     </h2>
 
                     <p className="text-lg mb-10 leading-relaxed text-accent-muted">
-                        {content.footer.description}
+                        {description}
                     </p>
 
-                    {whatsappContact && (
+                    {button && (
                         <a
-                            href={whatsappContact.url}
+                            href={button.url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 active:scale-95"
@@ -47,17 +46,21 @@ export const Footer: React.FC = () => {
                                 (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 0 32px rgba(99, 102, 241, 0.35)';
                             }}
                         >
-                            <SvgIcon name="whatsapp" className="w-5 h-5 transition-transform group-hover:scale-110 shrink-0" />
-                            <span>{content.footer.buttonText}</span>
+                            <Icon name={button.icon} className="w-5 h-5 transition-transform group-hover:scale-110 shrink-0" />
+                            <span>{button.label}</span>
                         </a>
                     )}
                 </div>
 
                 <div className="pt-8 border-t border-white/5 flex justify-center items-center">
                     <p className="text-accent-muted text-sm font-medium">
-                        © {new Date().getFullYear()} {content.hero.name}.
-                        <span className="text-white/15 mx-2">·</span>
-                        La Habana, Cuba.
+                        © {new Date().getFullYear()} {ownerName}.
+                        {location && (
+                            <>
+                                <span className="text-white/15 mx-2">·</span>
+                                {location}
+                            </>
+                        )}
                     </p>
                 </div>
             </div>

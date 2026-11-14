@@ -1,10 +1,9 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
+import { Icon } from '../Icon';
+import type { SoftSkillsSection } from '../../types/portfolio';
 
-interface SoftSkillsProps {
-    title: string;
-    skills: string[];
-}
+type SoftSkillsProps = Omit<SoftSkillsSection, 'type'>;
 
 const containerVariants: Variants = {
     hidden: {},
@@ -20,12 +19,13 @@ const itemVariants: Variants = {
     },
 };
 
-export const SoftSkills: React.FC<SoftSkillsProps> = ({ title, skills }) => {
+export const SoftSkills: React.FC<SoftSkillsProps> = ({ title, icon, items }) => {
     return (
         <section className="section-container border-t border-white/5 mb-16 md:mb-32">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
                 <div className="md:col-span-4">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 md:sticky md:top-24">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 md:sticky md:top-24 flex items-center gap-4 md:gap-5">
+                        {icon && <Icon name={icon} className="shrink-0 w-8 h-8 md:w-10 md:h-10 text-accent-primary" />}
                         {title}
                     </h2>
                 </div>
@@ -37,7 +37,7 @@ export const SoftSkills: React.FC<SoftSkillsProps> = ({ title, skills }) => {
                         viewport={{ once: true }}
                         className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5"
                     >
-                        {skills.map((skill, index) => (
+                        {items.map((skill, index) => (
                             <motion.div
                                 key={index}
                                 variants={itemVariants}

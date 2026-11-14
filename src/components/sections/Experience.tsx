@@ -1,18 +1,10 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+import { Icon } from '../Icon';
 import { ExperienceCard } from '../ExperienceCard';
+import type { ExperienceSection } from '../../types/portfolio';
 
-interface ExperienceProps {
-    title: string;
-    experiences: {
-        company: string;
-        role: string;
-        period: string;
-        achievements: string[];
-        techs?: Array<{ name: string; icon: React.ComponentType<any> }>;
-    }[];
-}
+type ExperienceProps = Omit<ExperienceSection, 'type'>;
 
 const listVariants: Variants = {
     hidden: {},
@@ -28,13 +20,13 @@ const itemVariants = {
     },
 };
 
-export const Experience: React.FC<ExperienceProps> = ({ title, experiences }) => {
+export const Experience: React.FC<ExperienceProps> = ({ title, icon, items }) => {
     return (
         <section className="section-container border-t border-white/5">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
                 <div className="md:col-span-4">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 md:sticky md:top-24 flex items-center gap-4 md:gap-5">
-                        <Briefcase className="w-8 h-8 md:w-10 md:h-10 text-accent-primary" />
+                        <Icon name={icon ?? 'lucide:briefcase'} className="shrink-0 w-8 h-8 md:w-10 md:h-10 text-accent-primary" />
                         {title}
                     </h2>
                 </div>
@@ -52,7 +44,7 @@ export const Experience: React.FC<ExperienceProps> = ({ title, experiences }) =>
                             style={{ background: 'linear-gradient(to bottom, rgba(99,102,241,0.55), rgba(34,211,238,0.25), transparent)' }}
                         />
 
-                        {experiences.map((exp, index) => (
+                        {items.map((exp, index) => (
                             <motion.div
                                 key={index}
                                 variants={itemVariants}

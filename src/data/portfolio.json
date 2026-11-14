@@ -1,0 +1,460 @@
+{
+  "defaultLanguage": "es",
+  "languages": {
+    "es": {
+      "ui": { "copyCommand": "Copiar comando" },
+      "hero": {
+        "name": "Jorge Luis Castillo Vidal",
+        "role": "Desarrollador de Software Full-Stack & Mobile",
+        "description": "Desarrollador de software con más de 3 años de experiencia en el diseño y construcción de aplicaciones web y móviles. Licenciado en Ciencias de la Computación por la UCLV.",
+        "contact": [
+          { "icon": "lucide:mail", "label": "Gmail", "url": "mailto:cjorgeluis122333@gmail.com" },
+          { "icon": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
+          { "icon": "github", "label": "GitHub", "url": "https://github.com/cjorgeluis122333" },
+          { "icon": "whatsapp", "label": "WhatsApp", "url": "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte" }
+        ]
+      },
+      "sections": [
+        {
+          "type": "profile",
+          "title": "Perfil Profesional",
+          "text": "Especialista en crear soluciones escalables bajo arquitecturas modernas (Clean Architecture, Microservicios). Apasionado por el aprendizaje continuo y con capacidad demostrada para liderar proyectos técnicos y trabajar en entornos de alto rendimiento."
+        },
+        {
+          "type": "experience",
+          "title": "Experiencia Laboral",
+          "items": [
+            {
+              "company": "Xetid (Cuba)",
+              "role": "Desarrollador de Software",
+              "period": "2022 – Actualidad",
+              "achievements": [
+                "Liderazgo Técnico (Proyecto \"Reciclo\"): Dirección del desarrollo para la Empresa de Recuperación de Materias Primas de Santa Clara.",
+                "Desarrollo Mobile: Colaboración en la APK Ticked, garantizando estándares de calidad y optimización de rendimiento en Android.",
+                "Escalabilidad: Implementación de arquitecturas robustas para productos de impacto nacional."
+              ],
+              "techs": [
+                { "name": "Kotlin", "icon": "kotlin" },
+                { "name": "Jetpack Compose", "icon": "android" },
+                { "name": "SQLite", "icon": "sqlite" },
+                { "name": "GitLab CI", "icon": "gitlab" },
+                { "name": "GitHub Actions", "icon": "githubactions" },
+                { "name": "Android Studio", "icon": "android-studio" },
+                { "name": "Git", "icon": "git" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            },
+            {
+              "company": "Club Cubano Venezolano (Venezuela)",
+              "role": "Desarrollador de Software",
+              "period": "Enero 2026 – Actualidad (Remoto)",
+              "achievements": [
+                "Lidero la creación desde cero de un sistema de gestión empresarial para la administración de personal, socios e invitados.",
+                "Diseño e implementación de módulos de consulta en tiempo real y pasarelas de pago remoto, optimizando la recaudación y experiencia del usuario.",
+                "Diseño de la arquitectura de base de datos y lógica de negocio para asegurar un sistema fluido y escalable."
+              ],
+              "techs": [
+                { "name": "HTML5", "icon": "html5" },
+                { "name": "CSS3", "icon": "css" },
+                { "name": "JavaScript", "icon": "javascript" },
+                { "name": "TypeScript", "icon": "typescript" },
+                { "name": "React", "icon": "react" },
+                { "name": "PHP (Laravel)", "icon": "laravel" },
+                { "name": "PostgreSQL", "icon": "postgresql" },
+                { "name": "MySQL", "icon": "mysql" },
+                { "name": "Docker", "icon": "docker" },
+                { "name": "Vercel", "icon": "vercel" },
+                { "name": "Supabase", "icon": "supabase" },
+                { "name": "TiDB Cloud", "icon": "tidb" },
+                { "name": "Git", "icon": "git" },
+                { "name": "IntelliJ IDEA", "icon": "idea" },
+                { "name": "PhpStorm", "icon": "phpstorm" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            },
+            {
+              "company": "Drecom LLC (EE.UU.)",
+              "role": "Desarrollador de Software",
+              "period": "Mayo 2026 – Actualidad (Remoto)",
+              "achievements": [
+                "Desarrollo de InvoFlash: solución de facturación con IA que automatiza la generación, envío y seguimiento de facturas para freelancers y pequeñas empresas.",
+                "Desarrollo de EasyAgent: agente telefónico automatizado con IA que gestiona llamadas 24/7, agenda citas y brinda soporte con conversación natural.",
+                "Desarrollo de WorkClock: herramienta de control de tiempo para seguimiento de proyectos, horas facturables y generación de reportes detallados."
+              ],
+              "techs": [
+                { "name": "React Native", "icon": "react" },
+                { "name": "Expo", "icon": "expo" },
+                { "name": "Django (Python)", "icon": "django" },
+                { "name": "Astro", "icon": "astro" },
+                { "name": "VS Code", "icon": "vscode" },
+                { "name": "Git", "icon": "git" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "community",
+          "title": "Aportes a la Comunidad",
+          "items": [
+            {
+              "name": "jl-particles-interactive",
+              "type": "React Library",
+              "description": "Librería React para fondos de partículas interactivas y efectos de texto animados.",
+              "install": "npm install jl-particle-interactive",
+              "links": [
+                { "icon": "github", "label": "GitHub", "url": "https://github.com/cjorgeluis122333/jl-particles-interactive.git" },
+                { "icon": "lucide:package", "label": "npm", "url": "https://www.npmjs.com/package/jl-particle-interactive" },
+                { "icon": "lucide:external-link", "label": "Demo / Docs", "url": "https://jl-particles-interactive-l7djz9wub-jorge-luis-projects-39ec2794.vercel.app/" }
+              ]
+            },
+            {
+              "name": "jl-react-virtual-signature-canvas",
+              "type": "React Library",
+              "description": "Librería React para flujos de firma virtual con validación y detección.",
+              "install": "npm install jl-react-virtual-signature-canvas",
+              "links": [
+                { "icon": "github", "label": "GitHub", "url": "https://github.com/cjorgeluis122333/jl-react-virtual-signature-canvas.git" },
+                { "icon": "lucide:package", "label": "npm", "url": "https://www.npmjs.com/package/jl-react-virtual-signature-canvas" },
+                { "icon": "lucide:external-link", "label": "Demo / Docs", "url": "https://jl-react-virtual-signature-canvas.vercel.app/" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "techStack",
+          "title": "Stack Tecnológico",
+          "groups": [
+            {
+              "title": "Frontend",
+              "icon": "lucide:code",
+              "skills": [
+                { "name": "HTML5", "icon": "html5" },
+                { "name": "CSS3", "icon": "css" },
+                { "name": "JavaScript", "icon": "javascript" },
+                { "name": "TypeScript", "icon": "typescript" },
+                { "name": "React", "icon": "react" },
+                { "name": "Astro", "icon": "astro" }
+              ]
+            },
+            {
+              "title": "Backend",
+              "icon": "lucide:server",
+              "skills": [
+                { "name": "Java (Spring Boot)", "icon": "springboot" },
+                { "name": "PHP (Laravel)", "icon": "laravel" },
+                { "name": "Django (Python)", "icon": "django" }
+              ]
+            },
+            {
+              "title": "Mobile",
+              "icon": "lucide:smartphone",
+              "skills": [
+                { "name": "Kotlin (Jetpack Compose)", "icon": "kotlin" },
+                { "name": "React Native (Expo)", "icon": "expo" }
+              ]
+            },
+            {
+              "title": "Bases de Datos & Caché",
+              "icon": "lucide:database",
+              "skills": [
+                { "name": "PostgreSQL", "icon": "postgresql" },
+                { "name": "MySQL", "icon": "mysql" },
+                { "name": "SQLite", "icon": "sqlite" },
+                { "name": "Redis", "icon": "redis" }
+              ]
+            },
+            {
+              "title": "DevOps & Cloud",
+              "icon": "lucide:cloud",
+              "skills": [
+                { "name": "Docker", "icon": "docker" },
+                { "name": "GitHub Actions", "icon": "githubactions" },
+                { "name": "Cloudflare", "icon": "cloudflare" },
+                { "name": "Vercel", "icon": "vercel" },
+                { "name": "GitLab CI", "icon": "gitlab" },
+                { "name": "Supabase", "icon": "supabase" },
+                { "name": "TiDB Cloud", "icon": "tidb" }
+              ]
+            },
+            {
+              "title": "Herramientas",
+              "icon": "lucide:wrench",
+              "skills": [
+                { "name": "Git", "icon": "git" },
+                { "name": "IntelliJ IDEA", "icon": "idea" },
+                { "name": "PhpStorm", "icon": "phpstorm" },
+                { "name": "Android Studio", "icon": "android-studio" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "education",
+          "title": "Educación",
+          "items": [
+            {
+              "degree": "Licenciado en Ciencias de la Computación",
+              "institution": "Universidad Central \"Marta Abreu\" de Las Villas (UCLV), Cuba",
+              "status": "Graduado"
+            }
+          ]
+        },
+        {
+          "type": "softSkills",
+          "title": "Habilidades Blandas",
+          "items": [
+            "Liderazgo técnico y gestión de proyectos.",
+            "Capacidad de adaptación a nuevas problemáticas y stacks tecnológicos.",
+            "Trabajo en equipo y comunicación efectiva.",
+            "Resolución de problemas complejos con enfoque en eficiencia.",
+            "Inglés - Nivel B1 (Intermedio)."
+          ]
+        }
+      ],
+      "footer": {
+        "title": "Desarrollo el software que tu negocio necesita.",
+        "description": "Soluciones escalables, reales y directas al punto. Cuéntame tu idea y empecemos a trabajar hoy mismo.",
+        "button": {
+          "icon": "whatsapp",
+          "label": "Escríbeme al WhatsApp",
+          "url": "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte"
+        },
+        "location": "La Habana, Cuba."
+      }
+    },
+    "en": {
+      "ui": { "copyCommand": "Copy command" },
+      "hero": {
+        "name": "Jorge Luis Castillo Vidal",
+        "role": "Full-Stack & Mobile Software Developer",
+        "description": "Software developer with over 3 years of experience in designing and building web and mobile applications. Bachelor's Degree in Computer Science from UCLV.",
+        "contact": [
+          { "icon": "lucide:mail", "label": "Gmail", "url": "mailto:cjorgeluis122333@gmail.com" },
+          { "icon": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/jorge-luis-castillo-a93514341" },
+          { "icon": "github", "label": "GitHub", "url": "https://github.com/cjorgeluis122333" },
+          { "icon": "whatsapp", "label": "WhatsApp", "url": "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte" }
+        ]
+      },
+      "sections": [
+        {
+          "type": "profile",
+          "title": "Professional Profile",
+          "text": "Specialist in creating scalable solutions under modern architectures (Clean Architecture, Microservices). Passionate about continuous learning with a proven ability to lead technical projects and work in high-performance environments."
+        },
+        {
+          "type": "experience",
+          "title": "Work Experience",
+          "items": [
+            {
+              "company": "Xetid (Cuba)",
+              "role": "Software Developer",
+              "period": "2022 – Present",
+              "achievements": [
+                "Technical Leadership (\"Reciclo\" Project): Directed the development for the Santa Clara Raw Materials Recovery Company.",
+                "Mobile Development: Collaborated on the Ticked APK, ensuring quality standards and performance optimization on Android.",
+                "Scalability: Implementation of robust architectures for products with national impact."
+              ],
+              "techs": [
+                { "name": "Kotlin", "icon": "kotlin" },
+                { "name": "Jetpack Compose", "icon": "android" },
+                { "name": "SQLite", "icon": "sqlite" },
+                { "name": "GitLab CI", "icon": "gitlab" },
+                { "name": "GitHub Actions", "icon": "githubactions" },
+                { "name": "Android Studio", "icon": "android-studio" },
+                { "name": "Git", "icon": "git" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            },
+            {
+              "company": "Club Cubano Venezolano (Venezuela)",
+              "role": "Software Developer",
+              "period": "January 2026 – Present (Remote)",
+              "achievements": [
+                "Leading the creation from scratch of an enterprise management system for personnel, members, and guests administration.",
+                "Design and implementation of real-time query modules and remote payment gateways, optimizing collection and user experience.",
+                "Database architecture and business logic design to ensure a fluid and scalable system."
+              ],
+              "techs": [
+                { "name": "HTML5", "icon": "html5" },
+                { "name": "CSS3", "icon": "css" },
+                { "name": "JavaScript", "icon": "javascript" },
+                { "name": "TypeScript", "icon": "typescript" },
+                { "name": "React", "icon": "react" },
+                { "name": "PHP (Laravel)", "icon": "laravel" },
+                { "name": "PostgreSQL", "icon": "postgresql" },
+                { "name": "MySQL", "icon": "mysql" },
+                { "name": "Docker", "icon": "docker" },
+                { "name": "Vercel", "icon": "vercel" },
+                { "name": "Supabase", "icon": "supabase" },
+                { "name": "TiDB Cloud", "icon": "tidb" },
+                { "name": "Git", "icon": "git" },
+                { "name": "IntelliJ IDEA", "icon": "idea" },
+                { "name": "PhpStorm", "icon": "phpstorm" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            },
+            {
+              "company": "Drecom LLC (USA)",
+              "role": "Software Developer",
+              "period": "May 2026 – Present (Remote)",
+              "achievements": [
+                "Development of InvoFlash: an AI-powered invoicing solution that automates invoice generation, sending, and tracking for freelancers and small businesses.",
+                "Development of EasyAgent: an AI-powered automated phone agent that handles calls 24/7, schedules appointments, and provides natural conversational support.",
+                "Development of WorkClock: a time-tracking tool for monitoring projects, billing hours, and generating detailed reports."
+              ],
+              "techs": [
+                { "name": "React Native", "icon": "react" },
+                { "name": "Expo", "icon": "expo" },
+                { "name": "Django (Python)", "icon": "django" },
+                { "name": "Astro", "icon": "astro" },
+                { "name": "VS Code", "icon": "vscode" },
+                { "name": "Git", "icon": "git" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "community",
+          "title": "Community Contributions",
+          "items": [
+            {
+              "name": "jl-particles-interactive",
+              "type": "React Library",
+              "description": "React library for interactive particle backgrounds and animated text effects.",
+              "install": "npm install jl-particle-interactive",
+              "links": [
+                { "icon": "github", "label": "GitHub", "url": "https://github.com/cjorgeluis122333/jl-particles-interactive.git" },
+                { "icon": "lucide:package", "label": "npm", "url": "https://www.npmjs.com/package/jl-particle-interactive" },
+                { "icon": "lucide:external-link", "label": "Demo / Docs", "url": "https://jl-particles-interactive-l7djz9wub-jorge-luis-projects-39ec2794.vercel.app/" }
+              ]
+            },
+            {
+              "name": "jl-react-virtual-signature-canvas",
+              "type": "React Library",
+              "description": "React library for virtual signature workflows with validation and detection features.",
+              "install": "npm install jl-react-virtual-signature-canvas",
+              "links": [
+                { "icon": "github", "label": "GitHub", "url": "https://github.com/cjorgeluis122333/jl-react-virtual-signature-canvas.git" },
+                { "icon": "lucide:package", "label": "npm", "url": "https://www.npmjs.com/package/jl-react-virtual-signature-canvas" },
+                { "icon": "lucide:external-link", "label": "Demo / Docs", "url": "https://jl-react-virtual-signature-canvas.vercel.app/" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "techStack",
+          "title": "Tech Stack",
+          "groups": [
+            {
+              "title": "Frontend",
+              "icon": "lucide:code",
+              "skills": [
+                { "name": "HTML5", "icon": "html5" },
+                { "name": "CSS3", "icon": "css" },
+                { "name": "JavaScript", "icon": "javascript" },
+                { "name": "TypeScript", "icon": "typescript" },
+                { "name": "React", "icon": "react" },
+                { "name": "Astro", "icon": "astro" }
+              ]
+            },
+            {
+              "title": "Backend",
+              "icon": "lucide:server",
+              "skills": [
+                { "name": "Java (Spring Boot)", "icon": "springboot" },
+                { "name": "PHP (Laravel)", "icon": "laravel" },
+                { "name": "Django (Python)", "icon": "django" }
+              ]
+            },
+            {
+              "title": "Mobile (Android)",
+              "icon": "lucide:smartphone",
+              "skills": [
+                { "name": "Kotlin", "icon": "kotlin" },
+                { "name": "Jetpack Compose", "icon": "android" }
+              ]
+            },
+            {
+              "title": "Mobile Cross-Platform",
+              "icon": "lucide:smartphone",
+              "skills": [
+                { "name": "React Native", "icon": "react" },
+                { "name": "Expo", "icon": "expo" }
+              ]
+            },
+            {
+              "title": "Databases & Cache",
+              "icon": "lucide:database",
+              "skills": [
+                { "name": "PostgreSQL", "icon": "postgresql" },
+                { "name": "MySQL", "icon": "mysql" },
+                { "name": "SQLite", "icon": "sqlite" },
+                { "name": "Redis", "icon": "redis" }
+              ]
+            },
+            {
+              "title": "DevOps & Cloud",
+              "icon": "lucide:cloud",
+              "skills": [
+                { "name": "Docker", "icon": "docker" },
+                { "name": "GitHub Actions", "icon": "githubactions" },
+                { "name": "Cloudflare", "icon": "cloudflare" },
+                { "name": "Vercel", "icon": "vercel" },
+                { "name": "GitLab CI", "icon": "gitlab" },
+                { "name": "Supabase", "icon": "supabase" },
+                { "name": "TiDB Cloud", "icon": "tidb" }
+              ]
+            },
+            {
+              "title": "Tools",
+              "icon": "lucide:wrench",
+              "skills": [
+                { "name": "Git", "icon": "git" },
+                { "name": "VS Code", "icon": "vscode" },
+                { "name": "IntelliJ IDEA", "icon": "idea" },
+                { "name": "PhpStorm", "icon": "phpstorm" },
+                { "name": "Android Studio", "icon": "android-studio" },
+                { "name": "Postman", "icon": "postman" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "education",
+          "title": "Education",
+          "items": [
+            {
+              "degree": "Bachelor's Degree in Computer Science",
+              "institution": "Central University \"Marta Abreu\" of Las Villas (UCLV), Cuba",
+              "status": "Graduated"
+            }
+          ]
+        },
+        {
+          "type": "softSkills",
+          "title": "Soft Skills",
+          "items": [
+            "Technical leadership and project management.",
+            "Adaptability to new problems and technological stacks.",
+            "Teamwork and effective communication.",
+            "Complex problem solving with a focus on efficiency.",
+            "English - B1 Level (Intermediate)."
+          ]
+        }
+      ],
+      "footer": {
+        "title": "I build the software your business needs.",
+        "description": "Scalable, real, and straight-to-the-point solutions. Tell me about your idea and let's get to work today.",
+        "button": {
+          "icon": "whatsapp",
+          "label": "Message me on WhatsApp",
+          "url": "https://wa.me/5356155557?text=Hola%20Jorge%20Luis,%20vi%20tu%20perfil%20y%20me%20gustar%C3%ADa%20contactarte"
+        },
+        "location": "La Habana, Cuba."
+      }
+    }
+  }
+}

@@ -8,65 +8,75 @@ import { TechStack } from './components/sections/TechStack';
 import { Education } from './components/sections/Education';
 import { SoftSkills } from './components/sections/SoftSkills';
 import { Footer } from './components/sections/Footer';
-import React from 'react';
+import { portfolio, validatePortfolio } from './data/portfolio';
+import type { LanguageContent, Section } from './types/portfolio';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const AppContent: React.FC = () => {
-  const { content } = useLanguage();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden relative"
-    >
-      <LanguageSwitcher />
-      <Hero content={content.hero} />
-
-      <Profile
-        title={content.sections.profile}
-        text={content.profile.text}
-      />
-
-      <Experience
-        title={content.sections.experience}
-        experiences={content.experience}
-      />
-
-      <Community
-        title={content.sections.community}
-        libraries={content.community}
-      />
-
-      <TechStack
-        title={content.sections.techStack}
-        toolsTitle={content.sections.tools}
-        groups={content.techStack}
-        tools={content.tools}
-      />
-
-      <Education
-        title={content.sections.education}
-        education={content.education}
-      />
-
-      <SoftSkills
-        title={content.sections.softSkills}
-        skills={content.softSkills}
-      />
-
-      <Footer />
-    </motion.div>
-  );
+const renderSection = (section: Section, ui: LanguageContent['ui']) => {
+    switch (section.type) {
+        case 'profile':
+            return <Profile {...section} />;
+        case 'experience':
+            return <Experience {...section} />;
+        case 'community':
+            return <Community {...section} copyLabel={ui?.copyCommand} />;
+        case 'techStack':
+            return <TechStack {...section} />;
+        case 'education':
+            return <Education {...section} />;
+        case 'softSkills':
+            return <SoftSkills {...section} />;
+    }
 };
 
+const AppContent: React.FC = () => {
+    const { language, content } = useLanguage();
+
+    useEffect(() => {
+        document.documentElement.lang = language;
+        document.title = `${content.hero.name} — ${content.hero.role}`;
+    }, [language, content]);
+
+    return (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="min-h-screen bg-background text-foreground font-sans antialiased overflow-x-hidden relative"
+        >
+            <LanguageSwitcher />
+            <Hero content={content.hero} />
+
+            {content.sections.map((section, index) => (
+                <React.Fragment key={`${section.type}-${index}`}>{renderSection(section, content.ui)}</React.Fragment>
+            ))}
+
+            <Footer {...content.footer} ownerName={content.hero.name} />
+        </motion.div>
+    );
+};
+
+const ConfigError: React.FC<{ errors: string[] }> = ({ errors }) => (
+    <div className="min-h-screen bg-background text-foreground p-6 md:p-12 font-sans">
+        <h1 className="text-2xl font-bold mb-4">Error en src/data/portfolio.json</h1>
+        <ul className="list-disc pl-6 space-y-1 text-accent-muted">
+            {errors.map((error) => (
+                <li key={error}>{error}</li>
+            ))}
+        </ul>
+    </div>
+);
+
 const App: React.FC = () => {
-  return (
-    <LanguageProvider>
-      <AppContent />
-    </LanguageProvider>
-  );
+    const errors = validatePortfolio(portfolio);
+    if (errors.length > 0) return <ConfigError errors={errors} />;
+
+    return (
+        <LanguageProvider>
+            <AppContent />
+        </LanguageProvider>
+    );
 };
 
 export default App;

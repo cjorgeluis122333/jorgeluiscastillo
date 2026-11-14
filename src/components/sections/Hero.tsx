@@ -1,17 +1,10 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
+import { Icon } from '../Icon';
+import type { Hero as HeroContent } from '../../types/portfolio';
 
 interface HeroProps {
-    content: {
-        name: string;
-        role: string;
-        description: string;
-        contact: {
-            icon: React.ComponentType<any>;
-            label: string;
-            url: string;
-        }[];
-    };
+    content: HeroContent;
 }
 
 const containerVariants: Variants = {
@@ -51,9 +44,11 @@ const buttonVariants: Variants = {
 };
 
 export const Hero: React.FC<HeroProps> = ({ content }) => {
-    const nameParts = content.name.split(' ');
-    const firstName = nameParts.slice(0, 2).join(' ');
-    const lastName = nameParts.slice(2).join(' ');
+    // La segunda mitad del nombre (mín. 1 palabra) se resalta con el gradiente.
+    const nameParts = content.name.trim().split(/\s+/);
+    const highlightCount = Math.max(1, Math.floor(nameParts.length / 2));
+    const firstName = nameParts.slice(0, nameParts.length - highlightCount).join(' ');
+    const lastName = nameParts.slice(nameParts.length - highlightCount).join(' ');
 
     return (
         <section className="section-container min-h-[80vh] md:min-h-[90vh] flex flex-col justify-center items-center text-center overflow-hidden relative">
@@ -90,7 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
                     variants={itemVariants}
                     className="text-[8.5vw] md:text-[clamp(2.5rem,6vw,4.25rem)] font-bold mb-10 md:mb-12 text-white leading-none tracking-tighter whitespace-nowrap py-2"
                 >
-                    {firstName}{' '}
+                    {firstName}{firstName && ' '}
                     <span className="text-gradient">{lastName}</span>
                 </motion.h1>
 
@@ -118,7 +113,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
                             whileTap={{ scale: 0.97 }}
                             className="flex items-center justify-center gap-2 md:gap-3 px-3 md:px-6 py-3 md:py-4 glass-card text-white font-semibold text-[10px] sm:text-sm md:text-lg hover:border-accent-primary/40 hover:shadow-[0_0_24px_rgba(99,102,241,0.22)] transition-all"
                         >
-                            <item.icon className="w-4 h-4 md:w-6 md:h-6 text-accent-secondary shrink-0" />
+                            <Icon name={item.icon} className="w-4 h-4 md:w-6 md:h-6 text-accent-secondary shrink-0" />
                             <span className="truncate">{item.label}</span>
                         </motion.a>
                     ))}

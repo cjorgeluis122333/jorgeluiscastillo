@@ -1,32 +1,35 @@
 import React, { createContext, useContext, useState, type ReactNode } from 'react';
-import { CONTENT } from '../constants/content';
-
-type Language = 'es' | 'en';
+import { portfolio } from '../data/portfolio';
+import type { LanguageContent } from '../types/portfolio';
 
 interface LanguageContextType {
-    language: Language;
-    content: typeof CONTENT.es;
-    setLanguage: (lang: Language) => void;
+    language: string;
+    languages: string[];
+    content: LanguageContent;
+    setLanguage: (lang: string) => void;
     toggleLanguage: () => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const languages = Object.keys(portfolio.languages);
+const initialLanguage =
+    portfolio.defaultLanguage && languages.includes(portfolio.defaultLanguage)
+        ? portfolio.defaultLanguage
+        : languages[0];
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [language, setLanguageState] = useState<Language>('es');
+    const [language, setLanguage] = useState<string>(initialLanguage);
 
-    const setLanguage = (lang: Language) => {
-        setLanguageState(lang);
-    };
-
+    // Con dos idiomas alterna entre ellos; con más, recorre la lista en orden.
     const toggleLanguage = () => {
-        setLanguageState((prev) => (prev === 'es' ? 'en' : 'es'));
+        setLanguage((prev) => languages[(languages.indexOf(prev) + 1) % languages.length]);
     };
 
-    const content = CONTENT[language];
+    const content = portfolio.languages[language];
 
     return (
-        <LanguageContext.Provider value={{ language, content, setLanguage, toggleLanguage }}>
+        <LanguageContext.Provider value={{ language, languages, content, setLanguage, toggleLanguage }}>
             {children}
         </LanguageContext.Provider>
     );

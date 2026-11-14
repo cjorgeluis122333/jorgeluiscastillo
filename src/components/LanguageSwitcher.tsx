@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 export const LanguageSwitcher: React.FC = () => {
-    const { language, toggleLanguage } = useLanguage();
+    const { language, languages, toggleLanguage } = useLanguage();
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -27,6 +27,8 @@ export const LanguageSwitcher: React.FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
+    if (languages.length < 2) return null;
+
     return (
         <motion.button
             initial={{ opacity: 0, y: -20 }}
@@ -41,9 +43,12 @@ export const LanguageSwitcher: React.FC = () => {
             onClick={toggleLanguage}
             className="fixed top-6 right-6 z-50 px-4 py-2 glass-card border border-white/10 text-white font-medium text-sm flex items-center gap-2"
         >
-            <span className={language === 'es' ? 'text-accent-primary' : 'text-accent-muted'}>ES</span>
-            <div className="w-[1px] h-4 bg-white/20" />
-            <span className={language === 'en' ? 'text-accent-primary' : 'text-accent-muted'}>EN</span>
+            {languages.map((code, index) => (
+                <React.Fragment key={code}>
+                    {index > 0 && <div className="w-[1px] h-4 bg-white/20" />}
+                    <span className={language === code ? 'text-accent-primary' : 'text-accent-muted'}>{code.toUpperCase()}</span>
+                </React.Fragment>
+            ))}
         </motion.button>
     );
 };

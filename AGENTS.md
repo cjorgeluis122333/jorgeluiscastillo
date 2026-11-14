@@ -16,11 +16,11 @@ Portafolio personal de **Jorge Luis Castillo Vidal**, Desarrollador de Software 
 | Build tool | Vite 7 |
 | Estilos | Tailwind CSS 3 + clases utilitarias propias |
 | Animaciones | Framer Motion 12 |
-| Íconos | `react-icons` (Simple Icons) + `lucide-react` |
+| Íconos | `lucide-react` (dinámico) + marcas de Simple Icons vía CDN + SVG locales (ver `Icon.tsx`) |
 | Fuentes | Urbanist (cuerpo), Outfit (títulos) vía Google Fonts |
 | Linter | ESLint 9 + typescript-eslint |
 
-No hay backend, base de datos ni llamadas a API externas. Todo el contenido es estático, definido en `src/constants/content.ts`.
+No hay backend ni base de datos. **Todo el contenido vive en un único fichero: `src/data/portfolio.json`**; el código no contiene texto, orden de secciones ni iconos del contenido. Las únicas peticiones externas son las de fuentes (Google Fonts) y los iconos de marca (`cdn.simpleicons.org`).
 
 ---
 
@@ -28,27 +28,31 @@ No hay backend, base de datos ni llamadas a API externas. Todo el contenido es e
 
 ```
 src/
-├── App.tsx                     # Raíz de la app, monta LanguageProvider + secciones
+├── App.tsx                     # Valida el JSON, monta LanguageProvider y recorre content.sections
 ├── index.css                   # Estilos globales, custom utilities y @keyframes
-├── constants/
-│   └── content.ts              # TODO el contenido del sitio (ES + EN) en un solo objeto
+├── data/
+│   ├── portfolio.json          # ÚNICA fuente de contenido (todos los idiomas, secciones, iconos)
+│   └── portfolio.ts            # Importa el JSON + validatePortfolio() (errores legibles)
+├── types/
+│   └── portfolio.ts            # Tipos del JSON (PortfolioData, Section, ...)
 ├── context/
-│   └── LanguageContext.tsx     # Estado global del idioma (ES/EN), toggleLanguage()
+│   └── LanguageContext.tsx     # Idioma activo, lista de idiomas (claves del JSON), toggleLanguage()
+├── assets/icons/               # SVG/PNG propios; el nombre del fichero es el nombre del icono
 ├── components/
-│   ├── LanguageSwitcher.tsx    # Botón flotante para cambiar idioma
+│   ├── Icon.tsx                # Resuelve un icono a partir de un string (ver "Iconos")
+│   ├── LanguageSwitcher.tsx    # Selector flotante; se oculta con un solo idioma
 │   ├── ExperienceCard.tsx      # Tarjeta de experiencia laboral
-│   ├── LibraryCard.tsx         # Tarjeta de librería open source (Community)
+│   ├── LibraryCard.tsx         # Tarjeta de proyecto/librería (Community)
 │   ├── SkillBadge.tsx          # Badge de tecnología con ícono
-│   ├── SvgIcon.tsx             # Loader de SVGs personalizados (Git, LinkedIn, etc.)
 │   └── sections/
-│       ├── Hero.tsx            # Sección de bienvenida con nombre, rol y links de contacto
-│       ├── Profile.tsx         # Perfil profesional (texto descriptivo)
-│       ├── Experience.tsx      # Experiencia laboral (lista de ExperienceCard)
-│       ├── Community.tsx       # Aportes a la comunidad (librerías open source)
-│       ├── TechStack.tsx       # Stack tecnológico por categorías + herramientas
-│       ├── Education.tsx       # Formación académica
-│       ├── SoftSkills.tsx      # Habilidades blandas
-│       └── Footer.tsx          # CTA final con enlace a WhatsApp
+│       ├── Hero.tsx            # Nombre, rol, descripción y links de contacto
+│       ├── Profile.tsx         # type "profile"
+│       ├── Experience.tsx      # type "experience"
+│       ├── Community.tsx       # type "community"
+│       ├── TechStack.tsx       # type "techStack"
+│       ├── Education.tsx       # type "education"
+│       ├── SoftSkills.tsx      # type "softSkills"
+│       └── Footer.tsx          # CTA final (todo viene de `footer` en el JSON)
 ```
 
 ---
@@ -57,10 +61,11 @@ src/
 
 El sitio es **bilingüe (Español / Inglés)**. La lógica está en `LanguageContext.tsx`:
 
-- Estado inicial: `'es'` (español).
-- `toggleLanguage()` alterna entre `'es'` y `'en'`.
-- El objeto `CONTENT` en `content.ts` tiene dos claves (`es`, `en`) con la misma estructura.
-- **Regla de oro**: cualquier texto visible por el usuario debe estar en `content.ts`, nunca hardcodeado en un componente.
+- Los idiomas son las claves de `languages` en `portfolio.json` (`es`, `en`, `fr`...). No hay lista de idiomas en el código.
+- Idioma inicial: `defaultLanguage` del JSON, o el primero de `languages`.
+- `toggleLanguage()` recorre los idiomas en orden. Con un solo idioma el selector no se muestra.
+- `App.tsx` actualiza `document.title` y `<html lang>` desde el JSON.
+- **Regla de oro**: cualquier texto visible por el usuario debe estar en `portfolio.json`, nunca hardcodeado en un componente.
 
 ---
 
@@ -151,26 +156,43 @@ Las secciones `Experience` y `Community` comparten el mismo patrón visual: una 
 
 - **Componentes**: funcionales con TypeScript, `React.FC<Props>` con interfaz de props explícita en el mismo archivo.
 - **Exportaciones**: named exports (`export const Hero`), no default en componentes.
-- **Props de contenido**: cada sección recibe su contenido como prop desde `App.tsx` (no accede directamente al contexto salvo `LanguageSwitcher` y `Footer`).
-- **Íconos de terceros**: para marcas no cubiertas por `react-icons`, usar `SvgIcon` con SVGs almacenados en `src/assets/`.
-- **Íconos de categoría en TechStack**: cada grupo de `techStack` tiene su ícono mapeado en el objeto `CATEGORY_ICONS` dentro de `TechStack.tsx`. Si se añade una categoría nueva, agregar su entrada en ese mapa.
+- **Props de contenido**: cada sección recibe su contenido como prop desde `App.tsx` (`renderSection`); solo `LanguageSwitcher` usa el contexto. Los tipos de props salen de `src/types/portfolio.ts` (`Omit<XxxSection, 'type'>`), no se redeclaran.
+- **Nueva sección**: añadir su tipo en `types/portfolio.ts`, su regla en `REQUIRED_FIELDS` (`data/portfolio.ts`), el componente y su `case` en `renderSection` (`App.tsx`). Añadir *contenido* a una sección existente no requiere tocar código.
+- **Iconos**: nunca importar iconos en los datos. En el JSON `icon` es un string y `components/Icon.tsx` lo resuelve; en componentes usar `<Icon name={...} />`.
 - **No hay routing**: el portafolio es una sola página (SPA sin React Router).
 - **Framer Motion variants**: siempre importar `type Variants` y tipar los objetos de variantes explícitamente. Ver sección Animaciones.
 - **Glows y sombras**: preferir `boxShadow` en inline style o como `whileHover` prop de Framer Motion para efectos de glow dinámicos. Los tokens `glow-primary`, `glow-secondary`, `glow-sm` están disponibles en `tailwind.config.js`.
 
-### Estructura de `content.ts` — campos actuales
+### Estructura de `portfolio.json`
 
-Cada entrada de `education` ahora incluye el campo `status` (string) además de `degree`, `institution`, `institutionPrefix` e `icon`.
+```
+{ defaultLanguage?, languages: { <código>: { ui?, hero, sections[], footer } } }
+```
 
-Existe además el array `community` (uno por idioma) para listar librerías open source. Cada entrada tiene:
+- `hero`: `name`, `role`, `description`, `contact[{icon,label,url}]`. La segunda mitad del nombre (mín. 1 palabra) lleva `.text-gradient`.
+- `sections[]`: el **orden del array es el orden de la página**. Cada una tiene `type`, `title` e `icon?` (icono del título; hay uno por defecto según el tipo).
+  - `profile` → `text`
+  - `experience` → `items[{company,role,period,achievements[],techs?[{name,icon}]}]`
+  - `community` → `items[{name,type?,description,install?,links?[{label,url,icon}]}]` (el último link se resalta si hay más de uno)
+  - `techStack` → `groups[{title,icon?,skills[{name,icon}]}]` (las herramientas son un grupo más)
+  - `education` → `items[{degree,institution,status?}]`
+  - `softSkills` → `items[string]`
+- `footer`: `title`, `description`, `button?{icon,label,url}`, `location?`.
+- `ui`: textos sueltos de interfaz (`copyCommand`).
+- `validatePortfolio()` comprueba lo esencial y `App.tsx` muestra los errores en pantalla si hay alguno.
 
-- `name` — nombre del paquete / librería (idéntico en ES/EN).
-- `type` — badge corto (ej. `"React Library"`).
-- `description` — único campo que se traduce entre ES/EN.
-- `install` — comando `npm install ...`.
-- `links.github` / `links.npm` / `links.demo` — URLs completos.
+**Mantener todos los idiomas sincronizados** al añadir campos o elementos.
 
-**Mantener ambas versiones (ES/EN) sincronizadas** si se añaden campos o librerías nuevas.
+### Iconos (`Icon.tsx`)
+
+El string `icon` se resuelve en este orden:
+
+1. `"lucide:mail"` → Lucide (nombre en kebab-case, https://lucide.dev/icons).
+2. Nombre de fichero en `src/assets/icons/` (`git` → `git.svg`/`git.png`). Para añadir una marca propia basta con soltar el fichero ahí.
+3. Slug de Simple Icons (`"kotlin"`, `"githubactions"`) → se pide a `cdn.simpleicons.org`. Ojo: algunos slugs difieren del nombre (`css`, no `css3`).
+4. URL (`https://...` o ruta que empiece por `/`).
+
+Los iconos se pintan como máscara con `currentColor`, así que heredan el color/hover del texto. Si falla la carga se muestra un icono genérico. **No usar `react-icons/si` en bloque**: su chunk pesa ~5 MB.
 
 ---
 
@@ -191,7 +213,7 @@ npm run lint      # ESLint
 
 1. Nuevas clases utilitarias o keyframes añadidos a `index.css`.
 2. Nuevos tokens en `tailwind.config.js` (colores, sombras, gradientes).
-3. Cambios en la estructura de datos de `content.ts` (campos nuevos o renombrados).
+3. Cambios en la estructura de datos de `portfolio.json` y sus tipos (campos nuevos o renombrados).
 4. Nuevas convenciones de código o patrones establecidos.
 5. Cambios en el comportamiento de componentes existentes que afecten a quienes los modifiquen en el futuro.
 
