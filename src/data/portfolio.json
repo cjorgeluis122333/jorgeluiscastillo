@@ -19,8 +19,6 @@
             "const jorge = {",
             "  role: \"Full-Stack & Mobile\",",
             "  years: 3,",
-            "  stack: [\"Kotlin\", \"React\", \"Laravel\", \"Spring\"],",
-            "  arch: \"Clean Architecture\",",
             "  now: [\"Xetid\", \"CCV\", \"Drecom\"],",
             "  lang: [\"es\", \"en·B1\"],",
             "}"
